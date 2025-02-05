@@ -1,0 +1,62 @@
+footer {
+  min-width: 100vw;
+  background-color: #ea7d1d;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+/* Style for each section in the footer */
+.footerArticle {
+  max-width: 300px;
+  margin: 10px;
+}
+
+/* Section titles */
+h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  border-bottom: 2px solid white;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Email and general text */
+h5 {
+  margin: 8px 0 4px;
+  font-size: 1rem;
+}
+
+p {
+  margin: 4px 0;
+}
+
+/* Targeting footer links specifically */
+.footerLink {
+  color: white; /* Make text white */
+  text-decoration: none;
+  display: block;
+  margin: 4px 0;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Hover effect for footer links */
+.footerLink:hover {
+  color: #2280ed; /* Gold color on hover */
+  text-decoration: underline;
+}
+
+/* Ensure the footer is responsive */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerArticle {
+    text-align: center;
+  }
+}
