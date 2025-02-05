@@ -1,4 +1,4 @@
-import Navbar from "../Navbar/navbar";
+import Navbar from "../NavbarFolder/navbar";
 
 function Header() {
   return (
