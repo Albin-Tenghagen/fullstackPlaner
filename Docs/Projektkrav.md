@@ -33,6 +33,8 @@
     Feature branches och pull requests
     Minst 3 commits per utvecklare
 
+v
+
 ## Level Ups (Frivilliga Utmaningar)
 
 1.  Implementera autentisering (t.ex. inloggning med Firebase/Auth0).
