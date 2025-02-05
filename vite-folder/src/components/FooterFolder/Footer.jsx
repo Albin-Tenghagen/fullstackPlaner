@@ -57,6 +57,14 @@ const Footer = () => {
         >
           Zanas Github
         </a>
+        <a
+          href="https://github.com/Derainted"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footerLink"
+        >
+          Idris Github
+        </a>
       </article>
 
       <article className="footerArticle">
