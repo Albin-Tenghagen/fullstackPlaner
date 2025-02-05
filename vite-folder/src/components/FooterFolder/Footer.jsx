@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer>
       <article className="footerArticle">
-        <h4>Shortcuts</h4>
+        <h4 className="footerh4">Shortcuts</h4>
         <Link to="/details" className="footerLink">
           {" "}
           Travel Details
@@ -21,7 +21,7 @@ const Footer = () => {
       </article>
 
       <article className="footerArticle">
-        <h4>Contact</h4>
+        <h4 className="footerh4">Contact</h4>
         <h5>Email:</h5>
         <p>mail@mailson.com</p>
         <h5>Social media:</h5>
@@ -60,7 +60,7 @@ const Footer = () => {
       </article>
 
       <article className="footerArticle">
-        <h4>Trademark</h4>
+        <h4 className="footerh4">Trademark</h4>
         <p>Trady</p>
         <p>Lady</p>
         <p>Owns our soul</p>
