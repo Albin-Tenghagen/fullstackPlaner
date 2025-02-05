@@ -1,7 +1,11 @@
 import { React } from "react";
+import TravelForm from "../components/TravelFormFolder/TravelForm";
+
 
 const Home = () => {
-  return <h1>Home</h1>;
+  return (<>
+  <TravelForm />
+  </>)
 };
 
 export default Home;
