@@ -15,7 +15,7 @@ const router = createBrowserRouter([
       },
       {
         path: "details",
-        element: <Details />,
+        element: <Details />, // Path för Details-sidan
       },
       {
         path: "weather",
