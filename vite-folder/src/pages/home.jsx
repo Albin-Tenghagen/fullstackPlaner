@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ActivityFormModal from "../components/ActivityFormFolder/ActivityForm";
 import TravelList from "../components/TravelListFolder/TravelList";
+import "../components/ActivityFormFolder/activityForm.css"
 
 function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
