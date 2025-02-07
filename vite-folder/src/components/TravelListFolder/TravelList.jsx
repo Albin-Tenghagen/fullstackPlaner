@@ -4,7 +4,7 @@
 import TravelItem from "./TravelItem";
 const TravelList = () => {
   return (
-    <section>
+    <section className="travelList">
       <h3>Coming Travels</h3>
       {/* {TravelArray.map((Travel) => (
         <TravelItem />
