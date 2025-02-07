@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "../TravelFormFolder/travelForm.css"; // Import the CSS file
 
- function TravelForm() {
+import "../ActivityFormFolder/ActivityForm";
+
+ function TravelForm({ handleSubmitTravel }) {
+  
     const [formData, setFormData] = useState({
         country: "",
         timeOfDeparture: "",
@@ -18,19 +21,18 @@ import "../TravelFormFolder/travelForm.css"; // Import the CSS file
         methodOfTransportation: "Method of Transportation",
       };
     
-      const handleChange = (e) => {
+      const handleChangeTravel = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
       };
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form Submitted:", formData);
-      };
-    
+    function formSubmit(e) {
+      e.preventDefault()
+      handleSubmitTravel(formData)
+    }
+ 
       return (
         <div className="travel-form-container">
           <h2 className="travel-form-title">Travel Booking Form</h2>
-          <form onSubmit={handleSubmit} className="travel-form">
+          <form onSubmit={formSubmit} className="travel-form">
             {Object.keys(formData).map((key, index) => (
               <div
                 key={key}
@@ -45,7 +47,7 @@ import "../TravelFormFolder/travelForm.css"; // Import the CSS file
                     type="datetime-local"
                     name={key}
                     value={formData[key]}
-                    onChange={handleChange}
+                    onChange={handleChangeTravel}
                     className="travel-form-input"
                     required
                   />
@@ -54,14 +56,14 @@ import "../TravelFormFolder/travelForm.css"; // Import the CSS file
                     type="text"
                     name={key}
                     value={formData[key]}
-                    onChange={handleChange}
+                    onChange={handleChangeTravel}
                     className="travel-form-input"
                     required
                   />
                 )}
               </div>
             ))}
-            <button type="submit" className="travel-form-button">
+            <button  type="submit" className="travel-form-button">
               Submit
             </button>
           </form>

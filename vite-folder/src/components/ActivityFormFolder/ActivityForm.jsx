@@ -1,6 +1,6 @@
 function ActivityFormModal({ addActivity, closeModal }) {
 
-    const handleSubmit = (event) => {
+    const handleSubmitActivity = (event) => {
         event.preventDefault();
         const newActivity = {
             id: Date.now(),
@@ -19,7 +19,7 @@ function ActivityFormModal({ addActivity, closeModal }) {
             <div className="aFModal-content">
                 <h2 className="aFModal-title">Fill in trip details</h2>
                 <button className="aFModal-closeButton" onClick={closeModal}>X</button>
-                <form className="activityForm" onSubmit={handleSubmit}>
+                <form className="activityForm" onSubmit={handleSubmitActivity}>
                     <input name="activity" type="text" placeholder="Enter activity..." required />
                     <input name="specificLocation" type="text" placeholder="Specific location..." required />
                     <input name="date" type="date" required />
