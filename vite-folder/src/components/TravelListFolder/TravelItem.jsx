@@ -1,14 +1,20 @@
 // The travelItem component that renders the details of a single TravelItem
 //* @param {Travel} prop - the Travel details passed as a prop
 
-const TravelItem = () => {
+const TravelItem = ({
+  country,
+  timeOfDeparture,
+  adventuresEnd,
+  travellingParty,
+  methodOfTransportation,
+}) => {
   return (
     <article className="TravelItem">
-      <h4>Destination</h4>
-      <p>Time of departure</p>
-      <p>Adventure's end</p>
-      <p>TravelParty</p>
-      <p>Method of transportation</p>
+      <h4>{country}</h4>
+      <p>{timeOfDeparture}</p>
+      <p>{adventuresEnd}</p>
+      <p>{travellingParty}</p>
+      <p>{methodOfTransportation}</p>
       <p>Number of activities</p>
     </article>
   );

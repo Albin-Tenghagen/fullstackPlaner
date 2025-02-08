@@ -32,7 +32,7 @@ function Home() {
           addActivity={addActivity}
         />
       )}
-      <TravelList />
+      <TravelList travelArray={travelArray} />
     </>
   );
 }
