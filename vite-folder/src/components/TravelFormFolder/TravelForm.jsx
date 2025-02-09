@@ -1,39 +1,52 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../TravelFormFolder/travelForm.css"; // Import the CSS file
-
 import "../ActivityFormFolder/ActivityForm";
 
- function TravelForm({ handleSubmitTravel }) {
-  
-    const [formData, setFormData] = useState({
-        country: "",
-        timeOfDeparture: "",
-        adventuresEnd: "",
-        travellingParty: "",
-        methodOfTransportation: "",
-      });
-    
-      const fieldLabels = {
-        country: "Country",
-        timeOfDeparture: "Time of Departure",
-        adventuresEnd: "Adventures End",
-        travellingParty: "Travelling Party",
-        methodOfTransportation: "Method of Transportation",
-      };
-    
-      const handleChangeTravel = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-      };
-    function formSubmit(e) {
-      e.preventDefault()
-      handleSubmitTravel(formData)
-    }
- 
-      return (
-        <div className="travel-form-container">
-          <h2 className="travel-form-title">Travel Booking Form</h2>
-          <form onSubmit={formSubmit} className="travel-form">
-            {Object.keys(formData).map((key, index) => (
+function TravelForm({ handleSubmitTravel }) {
+  const [formData, setFormData] = useState({
+    id: "", // Unique ID field
+    country: "",
+    timeOfDeparture: "",
+    adventuresEnd: "",
+    travellingParty: "",
+    methodOfTransportation: "",
+  });
+
+  useEffect(() => {
+    // Generate a unique ID when the component mounts
+    setFormData((prevData) => ({
+      ...prevData,
+      id: Date.now().toString(),
+    }));
+  }, []);
+
+  const fieldLabels = {
+    country: "Country",
+    timeOfDeparture: "Time of Departure",
+    adventuresEnd: "Adventures End",
+    travellingParty: "Travelling Party",
+    methodOfTransportation: "Method of Transportation",
+  };
+
+  const handleChangeTravel = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  function formSubmit(e) {
+    e.preventDefault();
+    handleSubmitTravel(formData);
+  }
+
+  return (
+    <div className="travel-form-container">
+      <h2 className="travel-form-title">Travel Booking Form</h2>
+      <form onSubmit={formSubmit} className="travel-form">
+        {/* Hidden ID field */}
+        <input type="hidden" name="id" value={formData.id} />
+
+        {Object.keys(formData).map(
+          (key, index) =>
+            key !== "id" && ( // Exclude the ID field from visible inputs
               <div
                 key={key}
                 className={`travel-form-group ${
@@ -41,7 +54,7 @@ import "../ActivityFormFolder/ActivityForm";
                 }`}
               >
                 <label className="travel-form-label">{fieldLabels[key]}</label>
-    
+
                 {key === "timeOfDeparture" ? (
                   <input
                     type="datetime-local"
@@ -62,14 +75,14 @@ import "../ActivityFormFolder/ActivityForm";
                   />
                 )}
               </div>
-            ))}
-            <button  type="submit" className="travel-form-button">
-              Submit
-            </button>
-          </form>
-        </div>
-      );
-    }
-    
+            )
+        )}
+        <button type="submit" className="travel-form-button">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+}
 
 export default TravelForm;
