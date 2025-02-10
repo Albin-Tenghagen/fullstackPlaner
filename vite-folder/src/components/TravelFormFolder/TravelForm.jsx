@@ -2,6 +2,11 @@ import { useState, useEffect } from "react";
 import "../TravelFormFolder/travelForm.css"; // Import the CSS file
 import "../ActivityFormFolder/ActivityForm";
 
+//!||||||||||||||||||||||||||||||||||||||{  OBS!  }||||||||||||||||||||||||||||||||||||||||||||||||
+//* Arbeta helst inte features branchen. De blir lite kaos då! vi har ju skapat branches där vi kan arbeta själva så arbeta i dem istället.
+//! Annars blir de massa errors och konflikter som är jobbiga att hantera
+//!||||||||||||||||||||||||||||||||||||||{  OBS!  }||||||||||||||||||||||||||||||||||||||||||||||||
+
 function TravelForm({ handleSubmitTravel }) {
   const [formData, setFormData] = useState({
     id: "", // Unique ID field
@@ -10,6 +15,7 @@ function TravelForm({ handleSubmitTravel }) {
     adventuresEnd: "",
     travellingParty: "",
     methodOfTransportation: "",
+    activites: [],
   });
 
   useEffect(() => {
@@ -50,7 +56,7 @@ function TravelForm({ handleSubmitTravel }) {
               <div
                 key={key}
                 className={`travel-form-group ${
-                  index < 3 ? "left" : "right" // Assign left class for the first 3, right for the rest
+                  index < 3 ? "left" : "right" // Assign left class for the first 3,  right for the rest
                 }`}
               >
                 <label className="travel-form-label">{fieldLabels[key]}</label>
