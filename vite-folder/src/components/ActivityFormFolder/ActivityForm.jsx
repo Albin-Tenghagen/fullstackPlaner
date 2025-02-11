@@ -40,8 +40,15 @@ function ActivityFormModal({ addActivity, closeModal }) {
             placeholder="Short description"
             required
           />
-          <button className="aFModal-addButton" type="submit">
+          <button
+            onClick={closeModal}
+            className="aFModal-addButton"
+            type="submit"
+          >
             Add
+          </button>
+          <button onClick={closeModal} className="AfModal-addLaterButton">
+            Add later
           </button>
         </form>
       </div>

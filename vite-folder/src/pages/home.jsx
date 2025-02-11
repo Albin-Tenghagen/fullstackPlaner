@@ -11,6 +11,8 @@ function Home() {
   const [travelArray, setTravelArray] = useState([]);
   const addActivity = (newActivity) => {
     setActivities([...activities, newActivity]);
+    //*The modal is now closing when submiting an activity by setting the state to false
+    setIsModalOpen(false);
   };
 
   const handleSubmitTravel = (formData) => {
@@ -19,13 +21,19 @@ function Home() {
     setIsModalOpen(true);
     console.log("Form Submitted:", formData);
   };
+
   useEffect(() => {
     console.log("Travel Array Updated:", travelArray);
-  }, [travelArray]);
+
+    console.log("activities Updated:", activities);
+  }, [travelArray, activities]);
 
   return (
     <>
-      <TravelForm handleSubmitTravel={handleSubmitTravel} />
+      <TravelForm
+        activities={activities}
+        handleSubmitTravel={handleSubmitTravel}
+      />
       {isModalOpen && (
         <ActivityFormModal
           closeModal={() => setIsModalOpen(false)}
