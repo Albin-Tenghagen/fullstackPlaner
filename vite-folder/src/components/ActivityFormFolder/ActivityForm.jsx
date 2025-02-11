@@ -1,8 +1,11 @@
-function ActivityFormModal({ addActivity, closeModal }) {
+function ActivityFormModal({ addActivity, closeModal, selectedTravelId }) {
+  //! Error either here the console logs are not logging
   const handleSubmitActivity = (event) => {
+    console.log("activity submitted");
     event.preventDefault();
     const newActivity = {
-      id: Date.now(),
+      activityId: Date.now(),
+      id: selectedTravelId,
       activity: event.target.activity.value,
       specificLocation: event.target.specificLocation.value,
       date: event.target.date.value,
@@ -10,6 +13,7 @@ function ActivityFormModal({ addActivity, closeModal }) {
     };
     addActivity(newActivity);
     event.target.reset();
+    console.log("activity Wagwaan submitted");
   };
 
   return (

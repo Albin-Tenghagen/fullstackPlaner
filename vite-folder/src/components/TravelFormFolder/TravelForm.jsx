@@ -9,20 +9,12 @@ import "../ActivityFormFolder/ActivityForm";
 
 function TravelForm({ handleSubmitTravel }) {
   const [formData, setFormData] = useState({
-    id: Date.now(),
     country: "",
     timeOfDeparture: "",
     adventuresEnd: "",
     travellingParty: "",
     methodOfTransportation: "",
-    activites: [],
   });
-
-  useEffect(() => {
-    setFormData((prevData) => ({
-      ...prevData,
-    }));
-  }, []);
 
   const handleChangeTravel = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
