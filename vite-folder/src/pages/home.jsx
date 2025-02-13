@@ -30,7 +30,7 @@ function Home() {
       activities: [], // Ensure activities is an empty array initially
     };
     setTravelArray([...travelArray, newTravelEntry]);
-    setIsModalOpen(true); // Open the modal for adding activities
+    // setIsModalOpen(true); // Open the modal for adding activities
     setSelectedTravelId(newTravelEntry.travelId); // Set the selected travelId for activity submission
   };
 

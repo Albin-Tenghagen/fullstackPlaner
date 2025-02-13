@@ -8,6 +8,7 @@ const TravelItem = ({
   adventuresEnd,
   travellingParty,
   methodOfTransportation,
+  activities,
 }) => {
   function OpenModal() {}
   return (
@@ -17,7 +18,8 @@ const TravelItem = ({
       <p>{adventuresEnd}</p>
       <p>{travellingParty}</p>
       <p>{methodOfTransportation}</p>
-      <p>Number of activities</p>
+      <p>Activites to look forward to!</p>
+      <p>activites amount: {activities.length + 1}</p>
       <button>Add Activity</button>
     </article>
   );

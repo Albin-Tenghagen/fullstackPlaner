@@ -44,11 +44,7 @@ function ActivityFormModal({ addActivity, closeModal, selectedTravelId }) {
             placeholder="Short description"
             required
           />
-          <button
-            onClick={closeModal}
-            className="aFModal-addButton"
-            type="submit"
-          >
+          <button className="aFModal-addButton" type="submit">
             Add
           </button>
           <button onClick={closeModal} className="AfModal-addLaterButton">
