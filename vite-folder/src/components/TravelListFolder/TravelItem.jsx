@@ -19,7 +19,7 @@ const TravelItem = ({
       <p>{travellingParty}</p>
       <p>{methodOfTransportation}</p>
       <p>Activites to look forward to!</p>
-      <p>activites amount: {activities.length + 1}</p>
+      <p>activites amount: {activities.length}</p>
       <button>Add Activity</button>
     </article>
   );
