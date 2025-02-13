@@ -9,30 +9,12 @@ import "../ActivityFormFolder/ActivityForm";
 
 function TravelForm({ handleSubmitTravel }) {
   const [formData, setFormData] = useState({
-    id: "", // Unique ID field
     country: "",
     timeOfDeparture: "",
     adventuresEnd: "",
     travellingParty: "",
     methodOfTransportation: "",
-    activites: [],
   });
-
-  useEffect(() => {
-    // Generate a unique ID when the component mounts
-    setFormData((prevData) => ({
-      ...prevData,
-      id: Date.now().toString(),
-    }));
-  }, []);
-
-  const fieldLabels = {
-    country: "Country",
-    timeOfDeparture: "Time of Departure",
-    adventuresEnd: "Adventures End",
-    travellingParty: "Travelling Party",
-    methodOfTransportation: "Method of Transportation",
-  };
 
   const handleChangeTravel = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -47,42 +29,71 @@ function TravelForm({ handleSubmitTravel }) {
     <div className="travel-form-container">
       <h2 className="travel-form-title">Travel Booking Form</h2>
       <form onSubmit={formSubmit} className="travel-form">
-        {/* Hidden ID field */}
-        <input type="hidden" name="id" value={formData.id} />
+        {/* Country Input */}
+        <div className="travel-form-group left">
+          <label className="travel-form-label">Country</label>
+          <input
+            type="text"
+            name="country"
+            value={formData.country}
+            onChange={handleChangeTravel}
+            className="travel-form-input"
+            required
+          />
+        </div>
 
-        {Object.keys(formData).map(
-          (key, index) =>
-            key !== "id" && ( // Exclude the ID field from visible inputs
-              <div
-                key={key}
-                className={`travel-form-group ${
-                  index < 3 ? "left" : "right" // Assign left class for the first 3,  right for the rest
-                }`}
-              >
-                <label className="travel-form-label">{fieldLabels[key]}</label>
+        {/* Time of Departure Input */}
+        <div className="travel-form-group left">
+          <label className="travel-form-label">Time of Departure</label>
+          <input
+            type="datetime-local"
+            name="timeOfDeparture"
+            value={formData.timeOfDeparture}
+            onChange={handleChangeTravel}
+            className="travel-form-input"
+            required
+          />
+        </div>
 
-                {key === "timeOfDeparture" ? (
-                  <input
-                    type="datetime-local"
-                    name={key}
-                    value={formData[key]}
-                    onChange={handleChangeTravel}
-                    className="travel-form-input"
-                    required
-                  />
-                ) : (
-                  <input
-                    type="text"
-                    name={key}
-                    value={formData[key]}
-                    onChange={handleChangeTravel}
-                    className="travel-form-input"
-                    required
-                  />
-                )}
-              </div>
-            )
-        )}
+        {/* Adventures End Input */}
+        <div className="travel-form-group left">
+          <label className="travel-form-label">Adventures End</label>
+          <input
+            type="text"
+            name="adventuresEnd"
+            value={formData.adventuresEnd}
+            onChange={handleChangeTravel}
+            className="travel-form-input"
+            required
+          />
+        </div>
+
+        {/* Travelling Party Input */}
+        <div className="travel-form-group right">
+          <label className="travel-form-label">Travelling Party</label>
+          <input
+            type="text"
+            name="travellingParty"
+            value={formData.travellingParty}
+            onChange={handleChangeTravel}
+            className="travel-form-input"
+            required
+          />
+        </div>
+
+        {/* Method of Transportation Input */}
+        <div className="travel-form-group right">
+          <label className="travel-form-label">Method of Transportation</label>
+          <input
+            type="text"
+            name="methodOfTransportation"
+            value={formData.methodOfTransportation}
+            onChange={handleChangeTravel}
+            className="travel-form-input"
+            required
+          />
+        </div>
+
         <button type="submit" className="travel-form-button">
           Submit
         </button>
