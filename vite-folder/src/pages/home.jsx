@@ -8,6 +8,7 @@ import "../components/ActivityFormFolder/activityForm.css";
 function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTravelId, setSelectedTravelId] = useState(null);
+  const [travelArray, setTravelArray] = useState([]);
 
   const addActivity = (newActivity) => {
     setTravelArray((prevTravelArray) =>
@@ -39,9 +40,9 @@ function Home() {
     }
   }, [selectedTravelId]); // This hook runs whenever selectedTravelId changes
 
-  useEffect(() => {
-    console.log("Travel Array Updated:", travelArray);
-  }, [travelArray]);
+  // useEffect(() => {
+  //   console.log("Travel Array Updated:", travelArray);
+  // }, [travelArray]);
 
   return (
     <>

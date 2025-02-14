@@ -5,28 +5,24 @@ import { createSlice } from "@reduxjs/toolkit";
 //?
 //*
 const initialTravelState = {
-    travels: [],
-}
+  travels: [],
+};
 
 const travelSlice = createSlice({
-    name: "travel",
-    initialTravelState,
-    reducers: {
-     addActivity(state, action) {
-        state.activities.push(action.payload)
-        console.log("This is a da state", state)
-        console.log("this is our action", action)
-        
-     },   
-     removeActivity(state, action) {
-        console.log("This is a da state", state)
-        console.log("this is our action", action)   
-     },
-
-    },
-    
-    }
-);
+  name: "travel",
+  // initialTravelState,
+  // reducers: {
+  //  addActivity(state, action) {
+  //     state.activities.push(action.payload)
+  //     console.log("This is a da state", state)
+  //     console.log("this is our action", action)
+  //  },
+  //  removeActivity(state, action) {
+  //     console.log("This is a da state", state)
+  //     console.log("this is our action", action)
+  //  },
+  // },
+});
 
 export const { addActivity } = travelSlice.actions;
 

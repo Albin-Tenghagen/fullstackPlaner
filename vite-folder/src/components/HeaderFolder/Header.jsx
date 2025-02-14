@@ -3,9 +3,9 @@ import Navbar from "../NavbarFolder/navbar";
 function Header() {
   return (
     <header>
-      <figure className="Header-icon">
+      {/* <figure className="Header-icon">
         <img src="../../../public/cloud-icon-gray.jpg" alt="Logo" />
-      </figure>
+      </figure> */}
       <h1>Fullstack Planer</h1>
 
       <Navbar />
