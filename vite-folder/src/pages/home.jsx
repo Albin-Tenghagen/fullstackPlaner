@@ -7,7 +7,6 @@ import "../components/ActivityFormFolder/activityForm.css";
 
 function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [travelArray, setTravelArray] = useState([]);
   const [selectedTravelId, setSelectedTravelId] = useState(null);
   //! Error either here
   const addActivity = (newActivity) => {

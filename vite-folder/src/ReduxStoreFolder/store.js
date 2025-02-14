@@ -1,10 +1,12 @@
 // //TODO här kommer storen vara
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "../ReducerFolder/counterReducer";
+import counterSlice from "../ReducerFolder/counterSlice";
+import travelSlice from "../ReducerFolder/travelSlice"
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    counter: counterSlice,
+    travelArray: travelSlice
   },
 });
 
