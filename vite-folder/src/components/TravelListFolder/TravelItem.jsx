@@ -3,47 +3,69 @@
 //TODO the number of activites is still static and needs to be altered in such a way that the number of activities is actually displayed and not just a p tag
 
 
-const TravelItem = function travelItem ({
-  country,
-  timeOfDeparture,
-  adventuresEnd,
-  travellingParty,
-  methodOfTransportation,
-  activities,
-  addActivity,
-  onEdit,
-  onRemove
-}) {
+import React, { useState } from 'react';
 
-function handleAddButton (){
-  addActivity()
+const TravelItem = ({ travel, onDelete, onEdit }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedTravel, setEditedTravel] = useState(travel);
 
-}
+  // Handle input changes
+  const handleChange = (e) => {
+    setEditedTravel({ ...editedTravel, [e.target.name]: e.target.value });
+  };
+
+  // Save changes
+  const handleSave = () => {
+    onEdit(editedTravel); // Send updated data to parent
+    setIsEditing(false);
+  };
 
   return (
-    <article className="TravelItem">
-      <h4>{country}</h4>
-      <p>{timeOfDeparture.replace("T", " ")}</p>
-      <p>{adventuresEnd}</p>
-      <p>{travellingParty}</p>
-      <p>{methodOfTransportation}</p>
-      <p>Activites to look forward to!</p>
-      <p>activites amount: {activities.length}</p>
-      <div className="travelItem-actions">
-      <button className="add-button" onClick={handleAddButton}>Add Activity</button>
-
-
-
-      <button className="edit-button" onClick={onEdit}>Edit Activity</button>
-      <button className="remove-button" onClick={onRemove}>Remove Activity</button>
-      </div>
-    </article>
+    <div className="travel-item">
+      {isEditing ? (
+        <div>
+          <input
+            type="text"
+            name="destination"
+            value={editedTravel.destination}
+            onChange={handleChange}
+          />
+                    <input
+            type="text"
+            name="adventuresEnd"
+            value={editedTravel.adventuresEnd}
+            onChange={handleChange}
+          />
+                    <input
+            type="text"
+            name="destination"
+            value={editedTravel.destination}
+            onChange={handleChange}
+          />
+                    <input
+            type="text"
+            name="destination"
+            value={editedTravel.destination}
+            onChange={handleChange}
+          />
+          <input
+            type="date"
+            name="date"
+            value={editedTravel.date}
+            onChange={handleChange}
+          />
+          <button onClick={handleSave}>Save</button>
+          <button onClick={() => setIsEditing(false)}>Cancel</button>
+        </div>
+      ) : (
+        <div>
+          <p>{travel.destination} - {travel.date} - {travel.adventuresEnd} - </p>
+          <button onClick={() => setIsEditing(true)}>Edit</button>
+          <button onClick={onDelete}>Delete</button>
+        </div>
+      )}
+    </div>
   );
 };
 
-
-TravelItem.defaultProps = {
-  onEdit: () => console.log("Edit button clicked"),
-  onRemove: () => console.log("Remove button clicked"),
-};
 export default TravelItem;
