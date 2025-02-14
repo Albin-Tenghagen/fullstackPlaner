@@ -1,62 +1,66 @@
 import React, { useState } from 'react';
 
 const TravelForm = ({ onSubmit }) => {
-  const [destination, setDestination] = useState('');
+  const [country, setCountry] = useState('');
   const [adventuresEnd, setAdventuresEnd] = useState('');
-  // const [destination, setDestination] = useState('');
-  // const [destination, setDestination] = useState('');
-  const [date, setDate] = useState('');
+  const [timeOfDeparture, setTimeOfDeparture] = useState('');
+  const [travellingParty, setTravellingParty] = useState('');
+  const [methodOfTransportation, setMethodOfTransportation] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent page refresh
 
-    if (!destination || !adventuresEnd || !date) {
-      alert('Please fill in all fields.');
-      return;
-    }
 
-    onSubmit({ destination, adventuresEnd, date }); // Pass new travel item to parent
-    setDestination(''); // Clear input fields
+    onSubmit({ country, timeOfDeparture, methodOfTransportation, adventuresEnd, travellingParty }); // Pass new travel item to parent
+    setCountry(''); // Clear input fields
+    setTimeOfDeparture('');
     setAdventuresEnd('');
-    setDate('');
+    setTravellingParty('');
+    setMethodOfTransportation('');
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        value={destination}
-        onChange={(e) => setDestination(e.target.value)}
-        placeholder="Enter destination"
+        value={country}
+        onChange={(e) => setCountry(e.target.value)}
+        placeholder="Enter country"
         required
       />
+<label> Time of Departure: 
+<input
+                type="date"
+        value={timeOfDeparture}
+        onChange={(e) => setTimeOfDeparture(e.target.value)}
+        required
+      />
+</label>
+<label> Adventures End: 
             <input
-        type="text"
-        value={destination}
+        type="date"
+        value={adventuresEnd}
         onChange={(e) => setAdventuresEnd(e.target.value)}
         placeholder="Adventures End"
         required
       />
+      </label>
             <input
         type="text"
-        value={destination}
-        onChange={(e) => setDestination(e.target.value)}
-        placeholder="Enter destination"
+        value={travellingParty}
+        onChange={(e) => setTravellingParty(e.target.value)}
+        placeholder="Travelling Party"
         required
       />
-            <input
+
+<input
         type="text"
-        value={destination}
-        onChange={(e) => setDestination(e.target.value)}
-        placeholder="Enter destination"
+        value={methodOfTransportation}
+        onChange={(e) => setMethodOfTransportation(e.target.value)}
+        placeholder="Method of Transportation"
         required
       />
-      <input
-        type="date"
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-        required
-      />
+
       <button type="submit">Add Travel</button>
     </form>
   );

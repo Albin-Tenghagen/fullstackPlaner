@@ -26,32 +26,34 @@ const TravelItem = ({ travel, onDelete, onEdit }) => {
         <div>
           <input
             type="text"
-            name="destination"
-            value={editedTravel.destination}
+            name="country"
+            value={editedTravel.country}
             onChange={handleChange}
           />
+
+<input
+            type="date"
+            name="Time of Departure"
+            value={editedTravel.timeOfDeparture}
+            onChange={handleChange}
+          />
+
                     <input
-            type="text"
-            name="adventuresEnd"
+            type="date"
+            name="Adventures End"
             value={editedTravel.adventuresEnd}
             onChange={handleChange}
           />
                     <input
             type="text"
-            name="destination"
-            value={editedTravel.destination}
+            name="Travelling Party"
+            value={editedTravel.travellingParty}
             onChange={handleChange}
           />
                     <input
             type="text"
-            name="destination"
-            value={editedTravel.destination}
-            onChange={handleChange}
-          />
-          <input
-            type="date"
-            name="date"
-            value={editedTravel.date}
+            name="Method of Transportation"
+            value={editedTravel.methodOfTransportation}
             onChange={handleChange}
           />
           <button onClick={handleSave}>Save</button>
@@ -59,7 +61,7 @@ const TravelItem = ({ travel, onDelete, onEdit }) => {
         </div>
       ) : (
         <div>
-          <p>{travel.destination} - {travel.date} - {travel.adventuresEnd} - </p>
+          <p>{travel.country} - {travel.timeOfDeparture} - {travel.adventuresEnd} - {travel.travellingParty} - {travel.methodOfTransportation} </p>
           <button onClick={() => setIsEditing(true)}>Edit</button>
           <button onClick={onDelete}>Delete</button>
         </div>
