@@ -1,0 +1,43 @@
+header {
+  min-width: 100vw;
+  max-width: 100vw;
+  background-color: #ea7d1d;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+/* Style for each section in the footer */
+.footerArticle {
+  max-width: 300px;
+  margin: 10px;
+}
+
+/* Section titles */
+.footerh4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  border-bottom: 2px solid white;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+:hover {
+  color: #2280ed;
+  text-decoration: underline;
+}
+
+/* Ensure the footer is responsive */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerArticle {
+    text-align: center;
+  }
+}

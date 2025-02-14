@@ -2,11 +2,6 @@ import { useState, useEffect } from "react";
 import "../TravelFormFolder/travelForm.css"; // Import the CSS file
 import "../ActivityFormFolder/ActivityForm";
 
-//!||||||||||||||||||||||||||||||||||||||{  OBS!  }||||||||||||||||||||||||||||||||||||||||||||||||
-//* Arbeta helst inte features branchen. De blir lite kaos då! vi har ju skapat branches där vi kan arbeta själva så arbeta i dem istället.
-//! Annars blir de massa errors och konflikter som är jobbiga att hantera
-//!||||||||||||||||||||||||||||||||||||||{  OBS!  }||||||||||||||||||||||||||||||||||||||||||||||||
-
 function TravelForm({ handleSubmitTravel }) {
   const [formData, setFormData] = useState({
     country: "",

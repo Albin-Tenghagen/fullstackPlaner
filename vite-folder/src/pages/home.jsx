@@ -8,7 +8,7 @@ import "../components/ActivityFormFolder/activityForm.css";
 function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTravelId, setSelectedTravelId] = useState(null);
-  //! Error either here
+
   const addActivity = (newActivity) => {
     setTravelArray((prevTravelArray) =>
       prevTravelArray.map((travel) =>
@@ -21,7 +21,7 @@ function Home() {
     setIsModalOpen(false);
     console.log("Travel Array when activity is added:", travelArray);
   };
-  //! Error or could be here
+
   const handleSubmitTravel = (formData) => {
     const newTravelEntry = {
       ...formData,

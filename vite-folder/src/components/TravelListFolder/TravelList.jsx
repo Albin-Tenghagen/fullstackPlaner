@@ -4,8 +4,9 @@ import TravelItem from "./TravelItem";
 //*
 const TravelList = ({ travelArray }) => {
   return (
-    <section className="travelList">
-      <h3>Coming Travels</h3>
+    <section className="travelListSection">
+      <h3 className="travelListHeader">Coming Travels</h3>
+
       {travelArray.map((travel, index) => (
         <TravelItem key={index} {...travel} />
       ))}

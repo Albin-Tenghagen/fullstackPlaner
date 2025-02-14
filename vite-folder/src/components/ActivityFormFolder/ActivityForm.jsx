@@ -1,5 +1,4 @@
 function ActivityFormModal({ addActivity, closeModal, selectedTravelId }) {
-  //! Error either here the console logs are not logging
   const handleSubmitActivity = (event) => {
     console.log("activity submitted");
     event.preventDefault();
@@ -44,6 +43,7 @@ function ActivityFormModal({ addActivity, closeModal, selectedTravelId }) {
             placeholder="Short description"
             required
           />
+
           <button className="aFModal-addButton" type="submit">
             Add
           </button>
