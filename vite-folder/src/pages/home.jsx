@@ -54,7 +54,7 @@ function Home() {
           selectedTravelId={selectedTravelId}
         />
       )}
-      <TravelList travelArray={travelArray} />
+      <TravelList travelArray={travelArray} addActivity={addActivity} />
     </>
   );
 }
