@@ -1,25 +1,41 @@
-// The travelItem component that renders the details of a single TravelItem
-//* @param {Travel} prop - the Travel details passed as a prop
-const TravelItem = ({
-  country,
-  timeOfDeparture,
-  adventuresEnd,
-  travellingParty,
-  methodOfTransportation,
-  activities,
-}) => {
-  function OpenModal() {}
+import { useDispatch } from "react-redux";
+import { removeTravel } from "../../ReducerFolder/travelSlice";
+import ActivityDetail from "../DetailsFolder/ActivityDetail";
+
+const TravelItem = ({ travel }) => {
+  const dispatch = useDispatch();
+
   return (
-    <article className="TravelItem">
-      <h4 className="travelItemHeader">{country}</h4>
-      <p className="travelItemP">{timeOfDeparture.replace("T", " ")}</p>
-      <p className="travelItemP">{adventuresEnd}</p>
-      <p className="travelItemP">{travellingParty}</p>
-      <p className="travelItemP">{methodOfTransportation}</p>
-      <p className="travelItemP">Activites to look forward to!</p>
-      <p className="travelItemP">activites amount: {activities.length}</p>
-      <button>Add Activity</button>
-    </article>
+    <div className="travel-item">
+      <h3>{travel.name}</h3>
+      <p>
+        <strong>Destination:</strong> {travel.destination}
+      </p>
+      <p>
+        <strong>Dates:</strong> {travel.startDate} - {travel.endDate}
+      </p>
+      <p>
+        <strong>Description:</strong> {travel.description}
+      </p>
+      {travel.activities && travel.activities.length > 0 && (
+        <div>
+          <h4>Activities:</h4>
+          <ul>
+            {travel.activities.map((activity) => (
+              <ActivityDetail
+                key={activity.id}
+                travelId={travel.id}
+                activity={activity}
+              />
+            ))}
+          </ul>
+        </div>
+      )}
+      <button onClick={() => dispatch(removeTravel(travel.id))}>
+        Remove Travel
+      </button>
+    </div>
   );
 };
+
 export default TravelItem;

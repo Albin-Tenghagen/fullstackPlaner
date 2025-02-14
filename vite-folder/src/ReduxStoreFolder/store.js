@@ -1,12 +1,12 @@
-// //TODO här kommer storen vara
+// src/ReduxStoreFolder/store.js
 import { configureStore } from "@reduxjs/toolkit";
-import counterSlice from "../ReducerFolder/counterSlice";
-// import travelSlice from "../ReducerFolder/travelSlice"
+import travelReducer from "../ReducerFolder/travelSlice";
+import counterReducer from "../ReducerFolder/counterSlice"; // if you’re using this
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    counter: counterSlice,
-    // travelArray: travelSlice
+    travel: travelReducer,
+    counter: counterReducer,
   },
 });
 
