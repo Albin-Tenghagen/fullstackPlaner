@@ -1,7 +1,19 @@
 import React from "react";
 import "./modal.css";
 
+
+
+
 const Modal = ({ onClose, onEdit, onRemove }) => {
+
+  const modalType = useSelector((state) => state.travel.modal.modalType);
+
+  // Render the appropriate modal based on modalType
+  if (modalType === "editTravel") {
+    return <EditTravelModal />;
+  } else if (modalType === "activity") {
+    return <AddActivityModal />;
+  }
   return (
     <div className="modal-overlay">
       <div className="modal-content">

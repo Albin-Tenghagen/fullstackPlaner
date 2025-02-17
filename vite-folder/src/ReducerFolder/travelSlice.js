@@ -19,7 +19,7 @@ const travelSlice = createSlice({
       console.log("This is our action", action);
       state.travels.push({
         ...action.payload,
-        activities: action.payload.activities || [],
+        activities: action.payload.activities || [], // ensure activities is initialized
       });
       console.log("travels so far:");
     },
@@ -35,7 +35,7 @@ const travelSlice = createSlice({
         (travel) => travel.id === action.payload.id
       );
       if (index !== -1) {
-        state.travels[index] = action.payload;
+        state.travels[index] = action.payload; // update the entire travel object
       }
     },
     addActivity: (state, action) => {
@@ -73,12 +73,12 @@ const travelSlice = createSlice({
     openModal: (state, action) => {
       state.modal.isOpen = true;
       state.modal.modalType = action.payload.modalType;
-      state.modal.data = action.payload.data;
+      state.modal.data = action.payload.data; // store the data related to the modal
     },
     closeModal: (state) => {
-      (state.modal.isOpen = false),
-        (state.modal.modalType = null),
-        (state.modal.data = null);
+      state.modal.isOpen = false;
+      state.modal.modalType = null;
+      state.modal.data = null; // clear modal data when closed
     },
   },
 });
