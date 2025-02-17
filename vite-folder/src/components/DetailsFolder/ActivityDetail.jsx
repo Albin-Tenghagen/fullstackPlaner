@@ -24,7 +24,10 @@ const ActivityDetail = ({ travelId, activity }) => {
           dispatch(removeActivity({ travelId, activityId: activity.id }))
         }
       >
-        X
+        <img
+          src="../../../public/remove-add-dark/X circle.png"
+          alt="remove icon"
+        />
       </button>
     </li>
   );

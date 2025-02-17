@@ -7,8 +7,8 @@
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   color: white;
-  padding: 2rem;
-  margin: 2rem;
+  padding: 1rem;
+  margin: 1rem;
   width: 23vw;
 }
 
@@ -16,12 +16,12 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 2%;
+  justify-content: space-around;
+  margin: 0.5%;
   height: fit-content;
 }
 .removeButton {
-  width: 48%;
+  width: 50px;
   padding: 8px;
   background-color: #ff3300;
   color: white;
@@ -33,9 +33,9 @@
   margin: 1%;
 }
 .editButton {
-  width: 48%;
+  width: 50px;
   padding: 8px;
-  background-color: yellow;
+  background-color: #ea7d1d;
   color: black;
   font-size: 16px;
   border: none;
@@ -45,7 +45,7 @@
   margin: 1%;
 }
 .addButton {
-  width: 25%;
+  width: 50px;
   padding: 0.5rem;
   background-color: green;
   color: white;
@@ -53,5 +53,10 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 20px;
+  margin: 1%;
+}
+
+.travelItemIcon {
+  width: 2rem;
+  height: 2rem;
 }

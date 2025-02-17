@@ -21,12 +21,10 @@ const TravelItem = ({ travel }) => {
         {travel.timeOfDeparture.replace("T", " ")}{" "}
       </p>
       <p>
-        <p>
-          <strong>Adventures End: </strong>
-          {travel.adventuresEnd.replace("T", " ")}
-        </p>
-        <strong>Band of merry men:</strong> {travel.travellingParty}
+        <strong>Adventures End: </strong>
+        {travel.adventuresEnd.replace("T", " ")}
       </p>
+      <strong>Band of merry men:</strong> {travel.travellingParty}
       <p>
         {" "}
         <strong>Method of Transportation: </strong>{" "}
@@ -37,13 +35,21 @@ const TravelItem = ({ travel }) => {
           className="removeButton"
           onClick={() => dispatch(removeTravel(travel.id))}
         >
-          Remove
+          <img
+            className="travelItemIcon"
+            src="/icons/remove-add-light/X.png"
+            alt="remove icon"
+          />
         </button>
         <button
           className="editButton"
           onClick={() => dispatch(updateTravel(travel.id))}
         >
-          Edit
+          <img
+            className="travelItemIcon"
+            src="/icons/edit-light/Feather.png"
+            alt="edit icon"
+          />
         </button>
       </div>
       <div>
@@ -66,7 +72,11 @@ const TravelItem = ({ travel }) => {
         className="addButton"
         onClick={() => dispatch(addActivity(travel.id))}
       >
-        +
+        <img
+          className="travelItemIcon"
+          src="/icons/remove-add-light/Plus.png"
+          alt="add icon"
+        />
       </button>
     </article>
   );

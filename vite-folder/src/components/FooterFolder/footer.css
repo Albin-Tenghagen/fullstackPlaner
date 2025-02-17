@@ -3,10 +3,9 @@ footer {
   background-color: #ea7d1d;
   color: white;
   padding: 20px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: column;
 }
 
 /* Style for each section in the footer */
@@ -14,7 +13,20 @@ footer {
   max-width: 300px;
   margin: 10px;
 }
+.footerSection {
+  grid-column: 2 / span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 10% 90%;
+  grid-auto-flow: column;
+}
 
+.githubArticle {
+  grid-row: 2;
+}
+.LinkedinArticle {
+  grid-row: 2;
+}
 /* Section titles */
 .footerh4 {
   font-size: 1.2rem;
@@ -22,6 +34,11 @@ footer {
   border-bottom: 2px solid white;
   display: inline-block;
   padding-bottom: 5px;
+}
+.contacth4 {
+  width: 100%;
+  grid-row: 1;
+  grid-column: span 2;
 }
 
 /* Email and general text */
@@ -49,6 +66,10 @@ p {
   text-decoration: underline;
 }
 
+.footerIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 /* Ensure the footer is responsive */
 @media (max-width: 768px) {
   footer {
