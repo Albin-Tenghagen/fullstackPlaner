@@ -31,9 +31,12 @@ const EditTravelModal = () => {
   // Submit the form to update the travel
   const handleSubmit = (e) => {
     e.preventDefault();
+  
+    // Ensure the correct data is being passed, including the travel id
     dispatch(updateTravel({ ...formData, id: travel.id }));
     handleClose();
   };
+  
 
   useEffect(() => {
     if (!travel) {

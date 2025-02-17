@@ -7,6 +7,9 @@ import "./travelItem.css";
 const TravelItem = ({ travel }) => {
   const dispatch = useDispatch();
 
+  // Ensure activities is always an array, even if it's undefined
+  const activities = travel.activities || [];
+
   return (
     <article className="travel-item">
       <h3 className="travel-itemHeader">Coming Travel </h3>
@@ -17,7 +20,6 @@ const TravelItem = ({ travel }) => {
       <p><strong>Method of Transportation:</strong> {travel.methodOfTransportation}</p>
 
       <div className="buttonhouse">
-        {/* Remove Button */}
         <button
           className="removeButton"
           onClick={() => dispatch(removeTravel(travel.id))}
@@ -25,10 +27,10 @@ const TravelItem = ({ travel }) => {
           <img className="travelItemIcon" src="/icons/remove-add-light/X.png" alt="remove icon" />
         </button>
 
-        {/* Edit Button - Opens Modal to Edit Travel */}
+        {/* This will open the travel edit modal */}
         <button
           className="editButton"
-          onClick={() => dispatch(openModal({ modalType: "editTravel", data: travel }))} // Open the edit travel modal
+          onClick={() => dispatch(openModal({ modalType: "editTravel", data: travel }))} // Open the edit modal
         >
           <img className="travelItemIcon" src="/icons/edit-light/Feather.png" alt="edit icon" />
         </button>
@@ -36,9 +38,9 @@ const TravelItem = ({ travel }) => {
 
       <div>
         <h3>Activities:</h3>
-        {travel.activities.length > 0 ? (
+        {activities.length > 0 ? (
           <ul>
-            {travel.activities.map((activity) => (
+            {activities.map((activity) => (
               <ActivityDetail key={activity.id} travelId={travel.id} activity={activity} />
             ))}
           </ul>
@@ -47,10 +49,9 @@ const TravelItem = ({ travel }) => {
         )}
       </div>
 
-      {/* Add Activity Button - Opens Modal to Add Activity */}
       <button
         className="addButton"
-        onClick={() => dispatch(openModal({ modalType: "activity", data: travel.id }))} // Open the add activity modal
+        onClick={() => dispatch(openModal({ modalType: "activity", data: travel.id }))} // Open the activity modal
       >
         <img className="travelItemIcon" src="/icons/remove-add-light/Plus.png" alt="add icon" />
       </button>
