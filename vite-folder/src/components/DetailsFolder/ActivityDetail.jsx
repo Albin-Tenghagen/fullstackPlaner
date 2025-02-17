@@ -6,22 +6,25 @@ const ActivityDetail = ({ travelId, activity }) => {
 
   return (
     <li className="activity-detail">
-      <h5>{activity.name}</h5>
+      <h5>{activity.activity}</h5>
       <p>
-        <strong>Description:</strong> {activity.description}
+        <strong>Description: </strong> {activity.description}
       </p>
       <p>
-        <strong>Duration:</strong> {activity.duration}
+        <strong>Specific Location: </strong>
       </p>
       <p>
-        <strong>Cost:</strong> {activity.cost}
+        <strong>date: </strong> {activity.date}
+      </p>
+      <p>
+        <strong>Cost: </strong> {activity.cost}
       </p>
       <button
         onClick={() =>
           dispatch(removeActivity({ travelId, activityId: activity.id }))
         }
       >
-        Remove Activity
+        X
       </button>
     </li>
   );

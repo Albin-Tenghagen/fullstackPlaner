@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ea7d1d;
+  background-color: #007bff;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   color: white;
@@ -12,10 +12,42 @@
   width: 23vw;
 }
 
-.itemButton {
+.buttonhouse {
   width: 100%;
-  padding: 12px;
-  background-color: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2%;
+  height: fit-content;
+}
+.removeButton {
+  width: 48%;
+  padding: 8px;
+  background-color: #ff3300;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* margin-top: 20px; */
+  margin: 1%;
+}
+.editButton {
+  width: 48%;
+  padding: 8px;
+  background-color: yellow;
+  color: black;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* margin-top: 20px; */
+  margin: 1%;
+}
+.addButton {
+  width: 25%;
+  padding: 0.5rem;
+  background-color: green;
   color: white;
   font-size: 16px;
   border: none;

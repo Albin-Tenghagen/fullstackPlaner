@@ -4,14 +4,13 @@ import TravelList from "../components/TravelListFolder/TravelList";
 
 const Home = () => {
   return (
-    <div className="home-container">
-      <h1>Welcome to the Travel App</h1>
+    <main className="home-container">
       {/* Form for adding a new travel (uses Redux for global state) */}
       <TravelForm />
 
       {/* List of travels (retrieves data from Redux global state) */}
       <TravelList />
-    </div>
+    </main>
   );
 };
 

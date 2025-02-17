@@ -40,7 +40,7 @@ const TravelForm = () => {
   };
 
   return (
-    <div className="travel-form-container">
+    <section className="travel-form-container">
       <h2 className="travel-form-title">Travel Booking Form</h2>
       <form onSubmit={handleSubmit} className="travel-form">
         {/* Country Input */}
@@ -50,6 +50,18 @@ const TravelForm = () => {
             type="text"
             name="country"
             value={formData.country}
+            onChange={handleChangeTravel}
+            className="travel-form-input"
+            required
+          />
+        </div>
+        {/* Travelling Party Input */}
+        <div className="travel-form-group right">
+          <label className="travel-form-label">Travelling Party</label>
+          <input
+            type="text"
+            name="travellingParty"
+            value={formData.travellingParty}
             onChange={handleChangeTravel}
             className="travel-form-input"
             required
@@ -82,19 +94,6 @@ const TravelForm = () => {
           />
         </div>
 
-        {/* Travelling Party Input */}
-        <div className="travel-form-group right">
-          <label className="travel-form-label">Travelling Party</label>
-          <input
-            type="text"
-            name="travellingParty"
-            value={formData.travellingParty}
-            onChange={handleChangeTravel}
-            className="travel-form-input"
-            required
-          />
-        </div>
-
         {/* Method of Transportation Input */}
         <div className="travel-form-group right">
           <label className="travel-form-label">Method of Transportation</label>
@@ -112,7 +111,7 @@ const TravelForm = () => {
           Submit
         </button>
       </form>
-    </div>
+    </section>
   );
 };
 

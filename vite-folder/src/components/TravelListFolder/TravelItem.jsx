@@ -1,5 +1,9 @@
 import { useDispatch } from "react-redux";
-import { removeTravel } from "../../ReducerFolder/travelSlice";
+import {
+  addActivity,
+  removeTravel,
+  updateTravel,
+} from "../../ReducerFolder/travelSlice";
 import ActivityDetail from "../DetailsFolder/ActivityDetail";
 import "./travelItem.css";
 
@@ -8,27 +12,43 @@ const TravelItem = ({ travel }) => {
 
   return (
     <article className="travel-item">
-      <h3>{travel.name}</h3>
+      <h3 className="travel-itemHeader">Coming Travel </h3>
       <p>
         <strong>Destination:</strong> {travel.country}
       </p>
       <p>
         <strong>Time Of Departure:</strong>{" "}
         {travel.timeOfDeparture.replace("T", " ")}{" "}
-        <strong>Adventures End:</strong>
-        {travel.adventuresEnd.replace("T", " ")}
       </p>
       <p>
+        <p>
+          <strong>Adventures End: </strong>
+          {travel.adventuresEnd.replace("T", " ")}
+        </p>
         <strong>Band of merry men:</strong> {travel.travellingParty}
       </p>
       <p>
         {" "}
-        <strong>Method of Transportation</strong>{" "}
+        <strong>Method of Transportation: </strong>{" "}
         {travel.methodOfTransportation}
       </p>
-      {travel.activities && travel.activities.length > 0 && (
-        <div>
-          <h4>Activities:</h4>
+      <div className="buttonhouse">
+        <button
+          className="removeButton"
+          onClick={() => dispatch(removeTravel(travel.id))}
+        >
+          Remove
+        </button>
+        <button
+          className="editButton"
+          onClick={() => dispatch(updateTravel(travel.id))}
+        >
+          Edit
+        </button>
+      </div>
+      <div>
+        <h3>Activities:</h3>
+        {travel.activities.length > 0 ? (
           <ul>
             {travel.activities.map((activity) => (
               <ActivityDetail
@@ -38,13 +58,15 @@ const TravelItem = ({ travel }) => {
               />
             ))}
           </ul>
-        </div>
-      )}
+        ) : (
+          <h4>No activities added yet!</h4>
+        )}
+      </div>
       <button
-        className="itemButton"
-        onClick={() => dispatch(removeTravel(travel.id))}
+        className="addButton"
+        onClick={() => dispatch(addActivity(travel.id))}
       >
-        Remove
+        +
       </button>
     </article>
   );

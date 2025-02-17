@@ -4,6 +4,7 @@ import TravelItem from "./TravelItem";
 //*
 // src/components/TravelListFolder/TravelList.jsx
 import { useSelector } from "react-redux";
+import "./travelList.css";
 
 const TravelList = () => {
   const travels = useSelector((state) => state.travel.travels);
@@ -17,7 +18,7 @@ const TravelList = () => {
           <TravelItem key={travel.id} travel={travel} />
         ))
       ) : (
-        <p>No travels added yet.</p>
+        <h4 className="emptySectionpopup">No travels added yet.</h4>
       )}
 
       {/*     

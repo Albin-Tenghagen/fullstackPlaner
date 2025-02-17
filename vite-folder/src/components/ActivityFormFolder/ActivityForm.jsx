@@ -8,6 +8,7 @@ function ActivityFormModal({ addActivity, closeModal, selectedTravelId }) {
       activity: event.target.activity.value,
       specificLocation: event.target.specificLocation.value,
       date: event.target.date.value,
+      cost: event.target.cost.value,
       description: event.target.description.value,
     };
     addActivity(newActivity);
@@ -41,6 +42,12 @@ function ActivityFormModal({ addActivity, closeModal, selectedTravelId }) {
             name="description"
             type="text"
             placeholder="Short description"
+            required
+          />
+          <input
+            name="cost"
+            type="text"
+            placeholder="Enter cost $..."
             required
           />
 
