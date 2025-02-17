@@ -1,21 +1,30 @@
 import { useDispatch } from "react-redux";
 import { removeTravel } from "../../ReducerFolder/travelSlice";
 import ActivityDetail from "../DetailsFolder/ActivityDetail";
+import "./travelItem.css";
 
 const TravelItem = ({ travel }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="travel-item">
+    <article className="travel-item">
       <h3>{travel.name}</h3>
       <p>
-        <strong>Destination:</strong> {travel.destination}
+        <strong>Destination:</strong> {travel.country}
       </p>
       <p>
-        <strong>Dates:</strong> {travel.startDate} - {travel.endDate}
+        <strong>Time Of Departure:</strong>{" "}
+        {travel.timeOfDeparture.replace("T", " ")}{" "}
+        <strong>Adventures End:</strong>
+        {travel.adventuresEnd.replace("T", " ")}
       </p>
       <p>
-        <strong>Description:</strong> {travel.description}
+        <strong>Band of merry men:</strong> {travel.travellingParty}
+      </p>
+      <p>
+        {" "}
+        <strong>Method of Transportation</strong>{" "}
+        {travel.methodOfTransportation}
       </p>
       {travel.activities && travel.activities.length > 0 && (
         <div>
@@ -31,10 +40,13 @@ const TravelItem = ({ travel }) => {
           </ul>
         </div>
       )}
-      <button onClick={() => dispatch(removeTravel(travel.id))}>
-        Remove Travel
+      <button
+        className="itemButton"
+        onClick={() => dispatch(removeTravel(travel.id))}
+      >
+        Remove
       </button>
-    </div>
+    </article>
   );
 };
 

@@ -1,28 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  travels: [
-    // You can prepopulate or leave this empty.
-    // Example travel object:
-    // {
-    //   id: 1,
-    //   name: 'Trip to Paris',
-    //   destination: 'Paris, France',
-    //   startDate: '2023-01-01',
-    //   endDate: '2023-01-07',
-    //   description: 'A wonderful week in Paris',
-    //   activities: [
-    //     {
-    //       id: 101,
-    //       travelId: 1,
-    //       name: 'Eiffel Tower Visit',
-    //       description: 'Guided tour of the Eiffel Tower',
-    //       duration: '2 hours',
-    //       cost: 30,
-    //     },
-    //   ]
-    // }
-  ],
+  travels: [],
 };
 
 const travelSlice = createSlice({

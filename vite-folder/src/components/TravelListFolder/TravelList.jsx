@@ -9,14 +9,22 @@ const TravelList = () => {
   const travels = useSelector((state) => state.travel.travels);
 
   return (
-    <div>
-      <h2>Travel List</h2>
+    <section className="travelListSection">
+      <h3 className="travelListHeader">Coming Travels</h3>
       {travels.length > 0 ? (
-        travels.map((travel) => <TravelItem key={travel.id} travel={travel} />)
+        travels.map((travel) => (
+          // Make sure that 'travel' is a valid object here.
+          <TravelItem key={travel.id} travel={travel} />
+        ))
       ) : (
         <p>No travels added yet.</p>
       )}
-    </div>
+
+      {/*     
+      {travels.map((travel) => (
+        <TravelItem key={travel.id} {...travel} />
+      ))} */}
+    </section>
   );
 };
 

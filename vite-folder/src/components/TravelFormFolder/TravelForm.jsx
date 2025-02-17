@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTravel } from "../../ReducerFolder/travelSlice";
+import "./travelForm.css";
 
 const TravelForm = () => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: "",
-    destination: "",
-    startDate: "",
-    endDate: "",
-    description: "",
+    country: "",
+    timeOfDeparture: "",
+    adventuresEnd: "",
+    travellingParty: "",
+    methodOfTransportation: "",
   });
 
-  const handleChange = (e) => {
+  const handleChangeTravel = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -29,47 +31,88 @@ const TravelForm = () => {
     dispatch(addTravel(newTravel));
     setFormData({
       name: "",
-      destination: "",
-      startDate: "",
-      endDate: "",
-      description: "",
+      country: "",
+      timeOfDeparture: "",
+      adventuresEnd: "",
+      travellingParty: "",
+      methodOfTransportation: "",
     });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        placeholder="Travel Name"
-      />
-      <input
-        name="destination"
-        value={formData.destination}
-        onChange={handleChange}
-        placeholder="Destination"
-      />
-      <input
-        name="startDate"
-        value={formData.startDate}
-        onChange={handleChange}
-        placeholder="Start Date"
-      />
-      <input
-        name="endDate"
-        value={formData.endDate}
-        onChange={handleChange}
-        placeholder="End Date"
-      />
-      <textarea
-        name="description"
-        value={formData.description}
-        onChange={handleChange}
-        placeholder="Description"
-      />
-      <button type="submit">Add Travel</button>
-    </form>
+    <div className="travel-form-container">
+      <h2 className="travel-form-title">Travel Booking Form</h2>
+      <form onSubmit={handleSubmit} className="travel-form">
+        {/* Country Input */}
+        <div className="travel-form-group left">
+          <label className="travel-form-label">Country</label>
+          <input
+            type="text"
+            name="country"
+            value={formData.country}
+            onChange={handleChangeTravel}
+            className="travel-form-input"
+            required
+          />
+        </div>
+
+        {/* Time of Departure Input */}
+        <div className="travel-form-group left">
+          <label className="travel-form-label">Time of Departure</label>
+          <input
+            type="datetime-local"
+            name="timeOfDeparture"
+            value={formData.timeOfDeparture}
+            onChange={handleChangeTravel}
+            className="travel-form-input"
+            required
+          />
+        </div>
+
+        {/* Adventures End Input */}
+        <div className="travel-form-group left">
+          <label className="travel-form-label">Adventures End</label>
+          <input
+            type="datetime-local"
+            name="adventuresEnd"
+            value={formData.adventuresEnd}
+            onChange={handleChangeTravel}
+            className="travel-form-input"
+            required
+          />
+        </div>
+
+        {/* Travelling Party Input */}
+        <div className="travel-form-group right">
+          <label className="travel-form-label">Travelling Party</label>
+          <input
+            type="text"
+            name="travellingParty"
+            value={formData.travellingParty}
+            onChange={handleChangeTravel}
+            className="travel-form-input"
+            required
+          />
+        </div>
+
+        {/* Method of Transportation Input */}
+        <div className="travel-form-group right">
+          <label className="travel-form-label">Method of Transportation</label>
+          <input
+            type="text"
+            name="methodOfTransportation"
+            value={formData.methodOfTransportation}
+            onChange={handleChangeTravel}
+            className="travel-form-input"
+            required
+          />
+        </div>
+
+        <button type="submit" className="travel-form-button">
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 
