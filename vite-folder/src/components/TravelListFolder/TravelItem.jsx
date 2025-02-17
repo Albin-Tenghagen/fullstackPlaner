@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import {
   addActivity,
+  openModal,
   removeTravel,
   updateTravel,
 } from "../../ReducerFolder/travelSlice";
@@ -70,7 +71,9 @@ const TravelItem = ({ travel }) => {
       </div>
       <button
         className="addButton"
-        onClick={() => dispatch(addActivity(travel.id))}
+        onClick={() =>
+          dispatch(openModal({ modalType: "activity", data: travel.id }))
+        }
       >
         <img
           className="travelItemIcon"

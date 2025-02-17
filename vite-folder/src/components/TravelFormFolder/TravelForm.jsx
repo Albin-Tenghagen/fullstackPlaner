@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTravel } from "../../ReducerFolder/travelSlice";
+import { addTravel, openModal } from "../../ReducerFolder/travelSlice";
 import "./travelForm.css";
 
 const TravelForm = () => {
@@ -28,6 +28,7 @@ const TravelForm = () => {
       ...formData,
       activities: [], // initialize with an empty activities array
     };
+
     dispatch(addTravel(newTravel));
     setFormData({
       name: "",
@@ -37,6 +38,7 @@ const TravelForm = () => {
       travellingParty: "",
       methodOfTransportation: "",
     });
+    // dispatch(openModal({ modalType: "activity", data: newTravel.id }));
   };
 
   return (

@@ -7,7 +7,7 @@ function Header() {
       <figure className="Header-icon">
         <img
           className="Header-img"
-          src="../../../public/cloud-icon-gray-removebg-preview.png"
+          src="/cloud-icon-gray-removebg-preview.png"
           alt="Logo"
         />
       </figure>

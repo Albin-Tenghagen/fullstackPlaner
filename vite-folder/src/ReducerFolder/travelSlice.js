@@ -21,6 +21,7 @@ const travelSlice = createSlice({
         ...action.payload,
         activities: action.payload.activities || [],
       });
+      console.log("travels so far:");
     },
     removeTravel: (state, action) => {
       // action.payload is the travel id
