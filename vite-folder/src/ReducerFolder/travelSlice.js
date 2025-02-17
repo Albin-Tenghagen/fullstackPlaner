@@ -2,6 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   travels: [],
+  modal: {
+    isOpen: false,
+    modalType: null,
+    data: null,
+  },
 };
 
 const travelSlice = createSlice({
@@ -64,6 +69,16 @@ const travelSlice = createSlice({
         }
       }
     },
+    openModal: (state, action) => {
+      state.modal.isOpen = true;
+      state.modal.modalType = action.payload.modalType;
+      state.modal.data = action.payload.data;
+    },
+    closeModal: (state) => {
+      (state.modal.isOpen = false),
+        (state.modal.modalType = null),
+        (state.modal.data = null);
+    },
   },
 });
 
@@ -74,5 +89,7 @@ export const {
   addActivity,
   removeActivity,
   updateActivity,
+  openModal,
+  closeModal,
 } = travelSlice.actions;
 export default travelSlice.reducer;

@@ -1,6 +1,6 @@
 /* Base container styles */
 .travel-form-container {
-  max-width: 90vw;
+  width: 95vw;
   margin: 0 auto;
   padding: 20px;
   background-color: #ea7d1d;
@@ -69,4 +69,24 @@
 
 .travel-form-button:hover {
   background-color: #0056b3;
+}
+
+@media (max-width = 500px) {
+  .travel-form-input {
+    flex-direction: column;
+  }
+  .travel-form-group {
+    width: 24%;
+    margin-bottom: 20px;
+  }
+
+  /* Additional styles for fields on the left side */
+  .travel-form-group.left {
+    width: 24%; /* 3 fields on the left */
+  }
+
+  /* Additional styles for fields on the right side */
+  .travel-form-group.right {
+    width: 24%; /* 2 fields on the right */
+  }
 }
