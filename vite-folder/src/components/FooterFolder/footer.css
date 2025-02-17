@@ -1,12 +1,11 @@
 footer {
-  min-width: 100vw;
+  max-width: 100vw;
   background-color: #ea7d1d;
   color: white;
   padding: 20px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: column;
 }
 
 /* Style for each section in the footer */
@@ -49,11 +48,26 @@ p {
   text-decoration: underline;
 }
 
+.footerIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 /* Ensure the footer is responsive */
 @media (max-width: 768px) {
   footer {
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .linked {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .trady {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .footerArticle {

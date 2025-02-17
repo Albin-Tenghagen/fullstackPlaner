@@ -1,0 +1,36 @@
+header {
+  max-width: 100%;
+  background-color: #ea7d1d;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* :hover {
+  color: #2280ed;
+  text-decoration: underline;
+} */
+.Header-icon {
+  width: 120px;
+  height: 120px;
+  height: auto;
+  position: relative;
+}
+.Header-img {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+/* Ensure the footer is responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

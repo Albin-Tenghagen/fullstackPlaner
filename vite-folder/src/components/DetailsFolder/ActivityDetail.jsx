@@ -1,33 +1,35 @@
-import React, { useState } from "react";
-import Modal from "./modal";
+import { useDispatch } from "react-redux";
+import { removeActivity } from "../../ReducerFolder/travelSlice";
 
-const ActivityDetail = ({ activity, onEdit, onRemove }) => {
-  const [showModal, setShowModal] = useState(false);
-
-  const handleEdit = () => {
-    onEdit(activity.id);
-    setShowModal(false);
-  };
-
-  const handleRemove = () => {
-    onRemove(activity.id);
-    setShowModal(false);
-  };
+const ActivityDetail = ({ travelId, activity }) => {
+  const dispatch = useDispatch();
 
   return (
-    <div>
-      <h2>{activity.name}</h2>
-      <p>Date: {activity.date}</p>
-      <p>Place: {activity.place}</p>
-      <button onClick={() => setShowModal(true)}>More Info</button>
-      {showModal && (
-        <Modal
-          onEdit={handleEdit}
-          onRemove={handleRemove}
-          onClose={() => setShowModal(false)}
+    <li className="activity-detail">
+      <h5>{activity.activity}</h5>
+      <p>
+        <strong>Description: </strong> {activity.description}
+      </p>
+      <p>
+        <strong>Specific Location: </strong>
+      </p>
+      <p>
+        <strong>date: </strong> {activity.date}
+      </p>
+      <p>
+        <strong>Cost: </strong> {activity.cost}
+      </p>
+      <button
+        onClick={() =>
+          dispatch(removeActivity({ travelId, activityId: activity.id }))
+        }
+      >
+        <img
+          src="../../../public/remove-add-dark/X circle.png"
+          alt="remove icon"
         />
-      )}
-    </div>
+      </button>
+    </li>
   );
 };
 

@@ -1,0 +1,62 @@
+.travel-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #007bff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: white;
+  padding: 1rem;
+  margin: 1rem;
+  width: 23vw;
+}
+
+.buttonhouse {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0.5%;
+  height: fit-content;
+}
+.removeButton {
+  width: 50px;
+  padding: 8px;
+  background-color: #ff3300;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* margin-top: 20px; */
+  margin: 1%;
+}
+.editButton {
+  width: 50px;
+  padding: 8px;
+  background-color: #ea7d1d;
+  color: black;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* margin-top: 20px; */
+  margin: 1%;
+}
+.addButton {
+  width: 50px;
+  padding: 0.5rem;
+  background-color: green;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1%;
+}
+
+.travelItemIcon {
+  width: 2rem;
+  height: 2rem;
+}

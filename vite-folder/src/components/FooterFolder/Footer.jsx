@@ -19,19 +19,23 @@ const Footer = () => {
           Home
         </Link>
       </article>
-
-      <article className="footerArticle">
-        <h4 className="footerh4">Contact</h4>
-        <h5>Email:</h5>
-        <p>mail@mailson.com</p>
-        <h5>Social media:</h5>
+      {/* ------------------------------------------------------------------ */}
+      <article className="footerArticle git">
+        <h4 className="footerh4">
+          <img
+            className="footerIcon"
+            src="/icons/links-light/Github.png"
+            alt="Git icon"
+          />
+          Github
+        </h4>
         <a
           href="https://github.com/Albin-Tenghagen"
           target="_blank"
           rel="noopener noreferrer"
           className="footerLink"
         >
-          Albins Github
+          Albin
         </a>
         <a
           href="https://github.com/ThaisonL"
@@ -39,7 +43,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="footerLink"
         >
-          Phi-Thai Github
+          Phi-Thai
         </a>
         <a
           href="https://github.com/Samii02"
@@ -47,7 +51,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="footerLink"
         >
-          Samis Github
+          Sami
         </a>
         <a
           href="https://github.com/ZanaPK0"
@@ -55,7 +59,8 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="footerLink"
         >
-          Zanas Github
+          {" "}
+          Zana
         </a>
         <a
           href="https://github.com/Derainted"
@@ -63,14 +68,66 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="footerLink"
         >
-          Idris Github
+          Idris
         </a>
       </article>
-
-      <article className="footerArticle">
+      {/* ------------------------------------------------------------------ */}
+      <article className="footerArticle linked">
+        <h4 className="footerh4">
+          {" "}
+          <img
+            className="footerIcon"
+            src="/icons/links-light/Linkedin.png"
+            alt="linkedin icon"
+          />
+          Linkedin
+        </h4>
+        <a
+          href="https://www.linkedin.com/in/albin-tenghagen-980685211/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footerLink"
+        >
+          Albin
+        </a>
+        <a
+          href="https://github.com/ThaisonL"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footerLink"
+        >
+          Phi-Thai
+        </a>
+        <a
+          href="https://github.com/Samii02"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footerLink"
+        >
+          Sami
+        </a>
+        <a
+          href="https://github.com/ZanaPK0"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footerLink"
+        >
+          {" "}
+          Zana
+        </a>
+        <a
+          href="https://github.com/Derainted"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footerLink"
+        >
+          Idris
+        </a>
+      </article>
+      {/* ------------------------------------------------------------------ */}
+      <article className="footerArticle trady">
         <h4 className="footerh4">Trademark</h4>
-        <p>Trady</p>
-        <p>Lady</p>
+        <p>Trady Lady</p>
         <p>Owns our soul</p>
         <p>© {currentYear}</p>
       </article>
