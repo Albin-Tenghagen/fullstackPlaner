@@ -1,26 +1,58 @@
-import React, { useState } from "react";
-import Modal from "../components/DetailsFolder/modal"; // Importera modal-komponenten
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import Modal from "../components/DetailsFolder/modal";
 
 function Details() {
-  const [showModal, setShowModal] = useState(false); // Hantera modalens synlighet
+  const [showModal, setShowModal] = useState(false);
+  const [selectedTravel, setSelectedTravel] = useState(null);
+  const travels = useSelector((state) => state.travel?.travels || []);
 
-  const handleShowModal = () => {
-    setShowModal(true); // Visa modalen
+  // useffect to see changes in redux and update component
+  useEffect(() => {
+    console.log("Travel data updated:", travels);
+  }, [travels]);
+
+  const handleShowModal = (travel) => {
+    setSelectedTravel(travel);
+    setShowModal(true);
   };
 
   const handleCloseModal = () => {
-    setShowModal(false); // Stäng modalen
+    setShowModal(false);
+    setSelectedTravel(null);
   };
 
   return (
     <>
-      <p>Details Page suckaaaas</p>
+      <h2>Details Page</h2>
 
-      {/* Knapp för att visa modal */}
-      <button onClick={handleShowModal}>Mer Info</button>
+      {travels.length === 0 ? (
+        <p>Inga resor sparade ännu.</p>
+      ) : (
+        <ul>
+          {travels.map((travel, index) => {
+            console.log("Travel item:", travel);
 
-      {/* Visa modalen när showModal är true */}
-      {showModal && <Modal onClose={handleCloseModal} />}
+            return (
+              <li key={index}>
+                <strong>Destination:</strong> {travel.country} <br />
+                <strong>Traveling Party:</strong> {travel.travellingParty} <br />
+                <strong>Time of Departure:</strong> {travel.timeOfDeparture.replace("T", " ")} <br />
+                <strong>Adventure End:</strong> {travel.adventuresEnd.replace("T", " ")} <br />
+                <strong>Method of Transportation:</strong> {travel.methodOfTransportation} <br />
+                <button onClick={() => handleShowModal(travel)}>Mer Info</button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+
+      {showModal && selectedTravel && (
+        <Modal
+          onClose={handleCloseModal}
+          travel={selectedTravel}
+        />
+      )}
     </>
   );
 }
