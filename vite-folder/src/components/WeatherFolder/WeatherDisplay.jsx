@@ -7,7 +7,7 @@ const WeatherDisplay = () => {
 
   const [weatherData, setWeatherData] = useState({}); // Store weather data by country
 
-  const sortedTravels = (travels || []).sort(
+  const sortedTravels = [...(travels || [])].sort(
     (a, b) => new Date(a.timeOfDeparture) - new Date(b.timeOfDeparture)
   );
 

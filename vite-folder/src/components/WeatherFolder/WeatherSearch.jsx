@@ -3,6 +3,7 @@ import "./weatherSearch.css";
 
 const CountryWeatherSearch = () => {
   const [country, setCountry] = useState(""); // Country search input
+  const [searchedCountry, setSearchedCountry] = useState("");
   const [weatherData, setWeatherData] = useState(null); // Weather data for the searched country
   const [loading, setLoading] = useState(false); // Loading state
   const [error, setError] = useState(""); // Error message for failed fetches
@@ -27,6 +28,7 @@ const CountryWeatherSearch = () => {
         uv: data.current.uv,
         wind_kph: data.current.wind_kph,
       });
+      setSearchedCountry(country);
     } catch (error) {
       console.error("Error fetching weather data:", error);
       setError("Failed to fetch weather data");
@@ -43,23 +45,36 @@ const CountryWeatherSearch = () => {
     }
   };
 
+  const getTemperatureDetails = (temp) => {
+    if (temp <= 0) return { className: "cold", text: "Freezing" };
+    if (temp <= 15) return { className: "cool", text: "Cool" };
+    if (temp <= 25) return { className: "warm", text: "Warm" };
+    return { className: "hot", text: "Hot" };
+  };
+
+  const { className, text } = weatherData ? getTemperatureDetails(weatherData.temp_c) : { className: "", text: "" };
+
   return (
-    <div className="weather-search-container">
+    <section className="weather-search-container">
       <h2>Search Weather by Country</h2>
-      <input
-        type="text"
-        placeholder="Enter country"
-        value={country}
-        onChange={(e) => setCountry(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
+      <section className="searchInputSection">
+        <input
+          type="text"
+          placeholder="Enter country"
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
+          required
+        />
+        <button className="weatherSearchButton" onClick={handleSearch}>Search</button>
+      </section>
 
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
 
       {weatherData && (
-        <div>
-          <h3>Weather in {country}</h3>
+        <section className="weatherStats-container">
+        <div className="weatherStats">
+          <h3>Weather in {searchedCountry}</h3>
           <p><strong>Temperature:</strong> {weatherData.temp_c}°C</p>
           <p><strong>Feels Like:</strong> {weatherData.feelsLike_c}°C</p>
           <p><strong>Condition:</strong> {weatherData.condition}</p>
@@ -67,8 +82,12 @@ const CountryWeatherSearch = () => {
           <p><strong>Humidity:</strong> {weatherData.humidity}%</p>
           <p><strong>UV Index:</strong> {weatherData.uv}</p>
         </div>
+        <div className={`temperature-box ${className}`}>
+          {text}
+        </div>
+      </section>
       )}
-    </div>
+    </section>
   );
 };
 

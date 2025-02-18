@@ -1,0 +1,71 @@
+.weather-search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+}
+
+.searchInputSection {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 20px 0;
+}
+
+.weatherSearchButton {
+    display: flex;
+    align-items: center;
+    background-color: #007bff;
+    margin: 0 0 0 2px;
+    height: 35px;
+}
+
+.searchInputSection input {
+    height: 25px;
+}
+
+.weatherStats-container {
+    background-color: #3f5268;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 300px;
+    margin-top: 15px;
+}
+
+.weatherStats p {
+    margin: 20px 0 0 0;
+    display: flex;
+    gap: 5px;
+}
+
+.temperature-box {
+    width: 100px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.temperature-box.cold {
+    background-color: rgb(118, 209, 255); /* Cold */
+}
+  
+  .temperature-box.cool {
+    background-color: rgb(75, 148, 251); /* Cool */
+}
+  
+  .temperature-box.warm {
+    background-color: rgb(255, 136, 72); /* Warm */
+}
+  
+  .temperature-box.hot {
+    background-color: rgb(235, 70, 25); /* Hot */
+}
