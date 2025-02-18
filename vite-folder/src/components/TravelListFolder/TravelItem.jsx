@@ -7,7 +7,7 @@ import {
 } from "../../ReducerFolder/travelSlice";
 import ActivityDetail from "../DetailsFolder/ActivityDetail";
 import "./travelItem.css";
-
+import { Link } from "react-router";
 const TravelItem = ({ travel }) => {
   const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ const TravelItem = ({ travel }) => {
         <strong>Adventures End: </strong>
         {travel.adventuresEnd.replace("T", " ")}
       </p>
-      <strong>Band of merry men:</strong> {travel.travellingParty}
+      <strong>Band of merry men: </strong> {travel.travellingParty}
       <p>
         {" "}
         <strong>Method of Transportation: </strong>{" "}
@@ -56,15 +56,9 @@ const TravelItem = ({ travel }) => {
       <div>
         <h3>Activities:</h3>
         {travel.activities.length > 0 ? (
-          <ul>
-            {travel.activities.map((activity) => (
-              <ActivityDetail
-                key={activity.id}
-                travelId={travel.id}
-                activity={activity}
-              />
-            ))}
-          </ul>
+          <h4>
+            This travel has {travel.activities.length} activity added so far{" "}
+          </h4>
         ) : (
           <h4>No activities added yet!</h4>
         )}
@@ -81,6 +75,9 @@ const TravelItem = ({ travel }) => {
           alt="add icon"
         />
       </button>
+      <Link className="addButton" to={`/details/${travel.id}`}>
+        read more
+      </Link>
     </article>
   );
 };

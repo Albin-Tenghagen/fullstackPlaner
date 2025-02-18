@@ -70,6 +70,7 @@ const travelSlice = createSlice({
         }
       }
     },
+    //* modal calling
     openModal: (state, action) => {
       state.modal.isOpen = true;
       state.modal.modalType = action.payload.modalType;

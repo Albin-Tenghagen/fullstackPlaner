@@ -1,26 +1,16 @@
 import React, { useState } from "react";
 import Modal from "../components/DetailsFolder/modal"; // Importera modal-komponenten
-
+import { useParams, Link } from "react-router-dom";
 function Details() {
-  const [showModal, setShowModal] = useState(false); // Hantera modalens synlighet
-
-  const handleShowModal = () => {
-    setShowModal(true); // Visa modalen
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false); // Stäng modalen
-  };
+  const { id } = useParams();
 
   return (
     <>
       <p>Details Page suckaaaas</p>
-
-      {/* Knapp för att visa modal */}
-      <button onClick={handleShowModal}>Mer Info</button>
-
-      {/* Visa modalen när showModal är true */}
-      {showModal && <Modal onClose={handleCloseModal} />}
+      <section>
+        <h2>Travel Details</h2>
+        <p>travelId: {id}</p>
+      </section>
     </>
   );
 }
