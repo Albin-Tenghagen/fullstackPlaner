@@ -3,9 +3,9 @@ import { removeActivity } from "../../ReducerFolder/travelSlice";
 
 const ActivityDetail = ({ travelId, activity }) => {
   const dispatch = useDispatch();
-
+  //TODO Fix CSS for this component
   return (
-    <li className="activity-detail">
+    <article className="activity-detail">
       <h5>{activity.activity}</h5>
       <p>
         <strong>Description: </strong> {activity.description}
@@ -24,12 +24,13 @@ const ActivityDetail = ({ travelId, activity }) => {
           dispatch(removeActivity({ travelId, activityId: activity.id }))
         }
       >
-        <img
+        X
+        {/* <img
           src="../../../public/remove-add-dark/X circle.png"
           alt="remove icon"
-        />
+        /> */}
       </button>
-    </li>
+    </article>
   );
 };
 
