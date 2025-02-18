@@ -39,6 +39,7 @@ const CountryWeatherSearch = () => {
   const handleSearch = () => {
     if (country.trim()) {
       fetchWeather(country);
+      setCountry("");
     }
   };
 
