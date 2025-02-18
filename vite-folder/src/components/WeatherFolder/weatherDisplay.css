@@ -1,3 +1,49 @@
+.travelWeather-container {
+    background: #ea7d1d;
+    padding: 15px;
+    width: 95vw;
+    border-radius: 20px;
+    margin: auto;
+}
+
+.travelWeather-container h2 {
+    margin: 20px 0 35px 35px;
+    font-size: 28px;
+}
+
+.weatherList {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .weatherList li {
     list-style: none;
+    background-color: #3f5268;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.cardTitle {
+    display: flex;
+    gap: 5px;
+}
+
+.temperature-box.cold {
+    background-color: rgb(118, 209, 255); /* Cold */
+}
+  
+  .temperature-box.cool {
+    background-color: rgb(75, 148, 251); /* Cool */
+}
+  
+  .temperature-box.warm {
+    background-color: rgb(255, 136, 72); /* Warm */
+}
+  
+  .temperature-box.hot {
+    background-color: rgb(235, 70, 25); /* Hot */
 }
