@@ -52,10 +52,12 @@ const TravelItem = ({ travel }) => {
 
       <div>
         <h3>Activities:</h3>
-        {travel.activities.length > 0 ? (
-          <h4>
-            This travel has {travel.activities.length} activity added so far{" "}
-          </h4>
+        {activities.length > 0 ? (
+          <ul>
+            {activities.map((activity) => (
+              <ActivityDetail key={activity.id} travelId={travel.id} activity={activity}  />
+            ))}
+          </ul>
         ) : (
           <h4>No activities added yet!</h4>
         )}
