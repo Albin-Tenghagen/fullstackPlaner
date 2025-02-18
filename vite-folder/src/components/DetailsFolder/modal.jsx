@@ -2,13 +2,23 @@ import React from "react";
 import "./modal.css";
 
 const Modal = ({ onClose, travel }) => {
+  if (!travel) {
+    return (
+      <div className="modal-overlay">
+        <div className="modal-content">
+          <button className="close-button" onClick={onClose}>X</button>
+          <h2>Activities</h2>
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
         <button className="close-button" onClick={onClose}>X</button>
         <h2>Activities</h2>
-
 
         {travel.activities && travel.activities.length > 0 ? (
           <ul>

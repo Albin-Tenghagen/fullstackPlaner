@@ -1,10 +1,6 @@
+import React from "react";
 import { useDispatch } from "react-redux";
-import {
-  addActivity,
-  openModal,
-  removeTravel,
-  updateTravel,
-} from "../../ReducerFolder/travelSlice";
+import { openModal, removeTravel } from "../../ReducerFolder/travelSlice";
 import ActivityDetail from "../DetailsFolder/ActivityDetail";
 import "./travelItem.css";
 import { Link } from "react-router";
@@ -13,6 +9,9 @@ const TravelItem = ({ travel }) => {
   //? it says Destination here but country in travelForm, what is that about?
 
   const dispatch = useDispatch();
+
+  // Ensure activities is always an array, even if it's undefined
+  const activities = travel.activities || [];
 
   return (
     <article className="travel-item">
@@ -39,23 +38,18 @@ const TravelItem = ({ travel }) => {
           className="removeButton"
           onClick={() => dispatch(removeTravel(travel.id))}
         >
-          <img
-            className="travelItemIcon"
-            src="/icons/remove-add-light/X.png"
-            alt="remove icon"
-          />
+          <img className="travelItemIcon" src="/icons/remove-add-light/X.png" alt="remove icon" />
         </button>
+
+        {/* This will open the travel edit modal */}
         <button
           className="editButton"
-          onClick={() => dispatch(updateTravel(travel.id))}
+          onClick={() => dispatch(openModal({ modalType: "editTravel", data: travel }))} // Open the edit modal
         >
-          <img
-            className="travelItemIcon"
-            src="/icons/edit-light/Feather.png"
-            alt="edit icon"
-          />
+          <img className="travelItemIcon" src="/icons/edit-light/Feather.png" alt="edit icon" />
         </button>
       </div>
+
       <div>
         <h3>Activities:</h3>
         {travel.activities.length > 0 ? (
@@ -66,17 +60,12 @@ const TravelItem = ({ travel }) => {
           <h4>No activities added yet!</h4>
         )}
       </div>
+
       <button
         className="addButton"
-        onClick={() =>
-          dispatch(openModal({ modalType: "activity", data: travel.id }))
-        }
+        onClick={() => dispatch(openModal({ modalType: "activity", data: travel.id }))} // Open the activity modal
       >
-        <img
-          className="travelItemIcon"
-          src="/icons/remove-add-light/Plus.png"
-          alt="add icon"
-        />
+        <img className="travelItemIcon" src="/icons/remove-add-light/Plus.png" alt="add icon" />
       </button>
       <Link className="addButton" to={`/details/${travel.id}`}>
         read more
