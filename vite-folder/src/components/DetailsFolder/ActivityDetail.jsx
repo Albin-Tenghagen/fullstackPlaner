@@ -25,7 +25,7 @@ const ActivityDetail = ({ travelId, activity }) => {
         }
       >
         <img
-          src="../../../public/remove-add-dark/X circle.png"
+          src="/icons/remove-add-dark/X-circle.png"
           alt="remove icon"
         />
       </button>

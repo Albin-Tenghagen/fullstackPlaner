@@ -41,7 +41,7 @@ const TravelItem = ({ travel }) => {
         {activities.length > 0 ? (
           <ul>
             {activities.map((activity) => (
-              <ActivityDetail key={activity.id} travelId={travel.id} activity={activity} />
+              <ActivityDetail key={activity.id} travelId={travel.id} activity={activity}  />
             ))}
           </ul>
         ) : (

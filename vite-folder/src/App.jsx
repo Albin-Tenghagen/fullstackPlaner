@@ -3,7 +3,6 @@ import Header from "./components/HeaderFolder/Header";
 import Footer from "./components/FooterFolder/Footer";
 import ActivityFormModal from "./components/ActivityFormFolder/ActivityForm";
 import EditTravelModal from "./components/TravelListFolder/EditTravelModal";
-import AddActivityModal from "../src/components/DetailsFolder/AddActivityModal";
 import { useSelector } from "react-redux"; // Import useSelector to access Redux state
 import "./App.css";
 

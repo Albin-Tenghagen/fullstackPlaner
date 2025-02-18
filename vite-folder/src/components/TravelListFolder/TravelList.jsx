@@ -8,7 +8,7 @@ import "./travelList.css";
 
 const TravelList = () => {
   const travels = useSelector((state) => state.travel.travels);
-
+  console.log(travels.map((travel) => travel.id));
   return (
     <section className="travelListSection">
       <h3 className="travelListHeader">Coming Travels</h3>
