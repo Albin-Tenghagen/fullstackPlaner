@@ -6,7 +6,7 @@
     min-height: 250px;
 }
 
-.searchInputSection {
+.searchInputSection form {
     display: flex;
     align-items: center;
     margin: 10px 0 20px 0;

@@ -58,14 +58,19 @@ const CountryWeatherSearch = () => {
     <section className="weather-search-container">
       <h2>Search Weather by Country</h2>
       <section className="searchInputSection">
-        <input
-          type="text"
-          placeholder="Enter country"
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-          required
-        />
-        <button className="weatherSearchButton" onClick={handleSearch}>Search</button>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          handleSearch();
+        }}>
+          <input
+            type="text"
+            placeholder="Enter country"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            required
+          />
+          <button className="weatherSearchButton" type="submit">Search</button>
+        </form>
       </section>
 
       {loading && <p>Loading...</p>}
