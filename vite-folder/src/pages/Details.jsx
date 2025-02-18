@@ -11,7 +11,7 @@ function Details() {
   return (
     <>
       <p>Details Page suckaaaas</p>
-      <section>
+      <main>
         <h2>Travel Details</h2>
         <p>travel id: {id}</p>
         {travel ? (
@@ -19,7 +19,7 @@ function Details() {
         ) : (
           <h4>Hejsan hoppsan</h4>
         )}
-      </section>
+      </main>
     </>
   );
 }
