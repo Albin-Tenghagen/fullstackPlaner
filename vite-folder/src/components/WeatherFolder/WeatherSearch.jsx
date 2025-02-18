@@ -59,12 +59,12 @@ const CountryWeatherSearch = () => {
       {weatherData && (
         <div>
           <h3>Weather in {country}</h3>
-          <p><strong>Condition:</strong> {weatherData.condition}</p>
-          <p><strong>Feels Like:</strong> {weatherData.feelsLike_c}°C</p>
-          <p><strong>Humidity:</strong> {weatherData.humidity}%</p>
           <p><strong>Temperature:</strong> {weatherData.temp_c}°C</p>
-          <p><strong>UV Index:</strong> {weatherData.uv}</p>
+          <p><strong>Feels Like:</strong> {weatherData.feelsLike_c}°C</p>
+          <p><strong>Condition:</strong> {weatherData.condition}</p>
           <p><strong>Wind Speed:</strong> {weatherData.wind_kph} kph</p>
+          <p><strong>Humidity:</strong> {weatherData.humidity}%</p>
+          <p><strong>UV Index:</strong> {weatherData.uv}</p>
         </div>
       )}
     </div>
