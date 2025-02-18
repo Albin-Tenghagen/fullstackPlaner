@@ -5,13 +5,9 @@ import {
   removeTravel,
   updateTravel,
 } from "../../ReducerFolder/travelSlice";
-import ActivityDetail from "../DetailsFolder/ActivityDetail";
-import "./travelItem.css";
-import { Link } from "react-router";
-//TODO Fix CSS for this component
-const TravelItem = ({ travel }) => {
-  //? it says Destination here but country in travelForm, what is that about?
 
+import { Link } from "react-router";
+const TravelItem = ({ travel }) => {
   const dispatch = useDispatch();
 
   return (
@@ -56,28 +52,6 @@ const TravelItem = ({ travel }) => {
           />
         </button>
       </div>
-      <div>
-        <h3>Activities:</h3>
-        {travel.activities.length > 0 ? (
-          <h4>
-            This travel has {travel.activities.length} activity added so far{" "}
-          </h4>
-        ) : (
-          <h4>No activities added yet!</h4>
-        )}
-      </div>
-      <button
-        className="addButton"
-        onClick={() =>
-          dispatch(openModal({ modalType: "activity", data: travel.id }))
-        }
-      >
-        <img
-          className="travelItemIcon"
-          src="/icons/remove-add-light/Plus.png"
-          alt="add icon"
-        />
-      </button>
       <Link className="addButton" to={`/details/${travel.id}`}>
         read more
       </Link>
