@@ -1,3 +1,4 @@
+import React, { useMemo } from "react";
 import TravelItem from "./TravelItem";
 // The TravelList that should render a list of the upcoming travels a person has.
 //* @param An travel array is expected as a prop to render the travelItems in this section
@@ -9,6 +10,12 @@ import "./travelList.css";
 const TravelList = () => {
   const travels = useSelector((state) => state.travel.travels);
   console.log(travels.map((travel) => travel.id));
+
+  const filteredTravels = useMemo(() => {
+    return travels.filter(travel => travel.isActive);
+  }, [travels]);
+
+
   return (
     <section className="travelListSection">
       <h3 className="travelListHeader">Coming Travels</h3>
