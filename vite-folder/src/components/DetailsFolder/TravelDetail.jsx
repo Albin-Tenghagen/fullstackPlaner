@@ -43,7 +43,9 @@ const TravelItem = ({ travel }) => {
         </button>
         <button
           className="editButton"
-          onClick={() => dispatch(updateTravel(travel.id))}
+          onClick={() =>
+            dispatch(openModal({ modalType: "editTravel", data: travel }))
+          }
         >
           <img
             className="travelItemIcon"

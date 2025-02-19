@@ -1,5 +1,8 @@
 import { useDispatch } from "react-redux";
-import { removeActivity } from "../../ReducerFolder/travelSlice";
+import {
+  removeActivity,
+  updateActivity,
+} from "../../ReducerFolder/travelSlice";
 
 const ActivityDetail = ({ travelId, activity }) => {
   const dispatch = useDispatch();
@@ -24,11 +27,19 @@ const ActivityDetail = ({ travelId, activity }) => {
           dispatch(removeActivity({ travelId, activityId: activity.id }))
         }
       >
-        <img
-          src="/icons/remove-add-dark/X-circle.png"
-          alt="remove icon"
-        /> 
+        <img src="/icons/remove-add-dark/X-circle.png" alt="remove icon" />
       </button>
+      <button
+        onClick={() =>
+          dispatch(updateActivity({ travelId, activityId: activity.id }))
+        }
+      >
+        <img
+          className="travelItemIcon"
+          src="/icons/edit-light/Feather.png"
+          alt="edit icon"
+        />
+      </button>{" "}
     </article>
   );
 };

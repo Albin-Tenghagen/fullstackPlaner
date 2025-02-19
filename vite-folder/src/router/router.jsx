@@ -3,9 +3,11 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/home";
 import Weather from "../pages/weather";
-import NotFound from "../components/errorsFolder/NotFound";
+// import NotFound from "../components/errorsFolder/NotFound";
 const Details = lazy(() => import("../pages/Details"));
-const TravelList = lazy(() => import("../components/TravelListFolder/TravelList"));
+const TravelList = lazy(() =>
+  import("../components/TravelListFolder/TravelList")
+);
 
 const router = createBrowserRouter([
   {
@@ -24,22 +26,22 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
-      {
-        path: "travels",
-        element: (
-          <Suspense fallback={<div>Laddar resor...</div>}>
-            <TravelList />
-          </Suspense>
-        ),
-      },
+      // {
+      //   path: "travels",
+      //   element: (
+      //     <Suspense fallback={<div>Loading travels...</div>}>
+      //       <TravelList />
+      //     </Suspense>
+      //   ),
+      // },
       {
         path: "weather",
         element: <Weather />,
       },
-      {
-        path: "*", // Fångar alla ogiltiga URL:er
-        element: <NotFound />, // Använd NotFound utan lazy
-      },
+      // {
+      //   path: "*", // Fångar alla ogiltiga URL:er
+      //   element: <NotFound />, // Använd NotFound utan lazy
+      // },
     ],
   },
 ]);

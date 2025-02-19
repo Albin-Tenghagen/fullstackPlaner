@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTravel, openModal } from "../../ReducerFolder/travelSlice";
 import "./travelForm.css";
+import { filterCountries } from "./filterCountries";
 
 const TravelForm = () => {
   const dispatch = useDispatch();
@@ -14,10 +15,14 @@ const TravelForm = () => {
     methodOfTransportation: "",
   });
 
+  const [filteredCountries, setFilteredCountries] = useState([]);
+
   const handleChangeTravel = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
