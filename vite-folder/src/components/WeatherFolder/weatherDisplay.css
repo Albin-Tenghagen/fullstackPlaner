@@ -16,6 +16,7 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 15px;
+    padding: 0;
 }
 
 .weatherList li {
