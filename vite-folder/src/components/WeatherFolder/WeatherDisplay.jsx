@@ -7,7 +7,7 @@ const WeatherDisplay = () => {
 
   const [weatherData, setWeatherData] = useState({}); // Store weather data by country
 
-  const sortedTravels = (travels || []).sort(
+  const sortedTravels = [...(travels || [])].sort(
     (a, b) => new Date(a.timeOfDeparture) - new Date(b.timeOfDeparture)
   );
 
@@ -49,31 +49,50 @@ const WeatherDisplay = () => {
     }
   };
 
+  const getTemperatureDetails = (temp) => {
+    if (temp <= 0) return { className: "cold", text: "Freezing" };
+    if (temp <= 15) return { className: "cool", text: "Cool" };
+    if (temp <= 25) return { className: "warm", text: "Warm" };
+    return { className: "hot", text: "Hot" };
+  };
+
   return (
-    <div>
-      <h2>Travel Weather</h2>
-      <ul className="weatherList" >
-        {nearestTravels.map((travel) => (
-          <li key={travel.id}>
-            <h3>{travel.destination}</h3>
-            <p>Country: {travel.country}</p>
-            <div>
-              {weatherData[travel.country] && (
-                <div>
-                  <p><strong>Condition:</strong> {weatherData[travel.country].condition}</p>
-                  <p><strong>Feels Like:</strong> {weatherData[travel.country].feelsLike_c}°C</p>
-                  <p><strong>Humidity:</strong> {weatherData[travel.country].humidity}%</p>
-                  <p><strong>Temperature:</strong> {weatherData[travel.country].temp_c}°C</p>
-                  <p><strong>UV Index:</strong> {weatherData[travel.country].uv}</p>
-                  <p><strong>Wind Speed:</strong> {weatherData[travel.country].wind_kph} kph</p>
+    <section className="travelWeather-container">
+      <h2>Your nearest travels!</h2>
+      <ul className="weatherList">
+        {nearestTravels.map((travel) => {
+          const weather = weatherData[travel.country];
+          const { className, text } = weather
+            ? getTemperatureDetails(weather.temp_c)
+            : { className: "", text: "" };
+  
+          return (
+            <li key={travel.id}>
+              <div className="cardTitle">
+                <h3>Weather in {travel.country}</h3>
+                <div className={`temperature-box ${className}`}>
+                  {text}
                 </div>
-              )}
-            </div>
-          </li>
-        ))}
+              </div>
+              <div>
+                {weather && (
+                  <div>
+                    <p><strong>Temperature:</strong> {weather.temp_c}°C</p>
+                    <p><strong>Feels Like:</strong> {weather.feelsLike_c}°C</p>
+                    <p><strong>Condition:</strong> {weather.condition}</p>
+                    <p><strong>Wind Speed:</strong> {weather.wind_kph} kph</p>
+                    <p><strong>Humidity:</strong> {weather.humidity}%</p>
+                    <p><strong>UV Index:</strong> {weather.uv}</p>
+                  </div>
+                )}
+              </div>
+            </li>
+          );
+        })}
       </ul>
-    </div>
+    </section>
   );
+  
 };
 
 export default WeatherDisplay;
