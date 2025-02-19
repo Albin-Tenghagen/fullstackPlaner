@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import {}
 import TravelDetail from "../components/DetailsFolder/TravelDetail";
 import ActivityDetail from "../components/DetailsFolder/ActivityDetail";
 function Details() {
@@ -12,7 +11,6 @@ function Details() {
   const { id } = useParams();
   const travels = useSelector((state) => state.travel.travels);
   const travel = travels.find((t) => String(t.id) === id);
-
   return (
     <>
       <p>Details Page suckaaaas</p>
@@ -26,7 +24,6 @@ function Details() {
             <h4>Hejsan hoppsan</h4>
           )}
         </section>
-
         <section className="activityDetailsSection">
           <article>
             <h3 className="activityDetailsHeader">Activites during the trip</h3>
@@ -43,18 +40,16 @@ function Details() {
               />
             </button>
           </article>
-
-          {travel.activities !== undefined ? (
+          {travel && travel.activities ? (
             travel.activities.map((activity) => (
               <ActivityDetail key={activity.id} activity={activity} />
             ))
           ) : (
-            <h4 className="emptySectionpopup">No activites added yet.</h4>
+            <h4 className="emptySectionpopup">No activities added yet.</h4>
           )}
         </section>
       </main>
     </>
   );
 }
-
 export default Details;
