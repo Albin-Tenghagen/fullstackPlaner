@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef} from "react";
 import { useDispatch } from "react-redux";
 import { addTravel, openModal } from "../../ReducerFolder/travelSlice";
 import "./travelForm.css";
@@ -15,16 +15,34 @@ const TravelForm = () => {
     methodOfTransportation: "",
   });
 
-  const [filteredCountries, setFilteredCountries] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]); // Rename the state to filteredCountries
+  const dropdownRef = useRef(null); // Ref to the dropdown container 
 
   const handleChangeTravel = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
       [name]: value,
     });
+
+    if (name === "country") {
+      const results = filterCountries(value);
+      setFilteredCountries(results);
+    }
   };
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setFilteredCountries([]); // Close dropdown if clicked outside
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,7 +79,28 @@ const TravelForm = () => {
             className="travel-form-input"
             required
           />
+          {/* Display filtered countries as a dropdown */}
+          {filteredCountries.length > 0 && (
+            <ul ref={dropdownRef} className="filtered-countries-list">
+              {filteredCountries.map((country, index) => (
+                <li
+                  key={index}
+                  onClick={() => {
+                    setFormData({
+                      ...formData,
+                      country: country.name,
+                    });
+                    setFilteredCountries([]);
+                  }}
+                >
+                  {country.name}
+                </li>
+              ))}
+            </ul>
+          )}
+
         </div>
+
         {/* Travelling Party Input */}
         <div className="travel-form-group right">
           <label className="travel-form-label">Travelling Party</label>

@@ -90,3 +90,24 @@
     width: 24%; /* 2 fields on the right */
   }
 }
+
+.filtered-countries-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #0f0909;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  max-width: 300px;
+  background-color: #007bff;
+}
+
+.filtered-countries-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.filtered-countries-list li:hover {
+  background-color: #2b92ff;
+}
