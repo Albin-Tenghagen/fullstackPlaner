@@ -21,16 +21,19 @@ const ActivityDetail = ({ travelId, activity }) => {
         <strong>Cost: </strong> {activity.cost}
       </p>
       <div className="buttonhouse1">
-      <button
+      <button className="removeButton"
         onClick={() =>
           dispatch(
             removeActivity({ travelId: travelId, activityId: activity.id })
           )
         }
       >
-        <img src="/icons/remove-add-dark/X-circle.png" alt="remove icon" />
-      </button>
-      <button
+          <img
+            className="travelItemIcon"
+            src="/icons/remove-add-light/X.png"
+            alt="remove icon"
+          />      </button>
+      <button className="editButton"
         onClick={() =>
           dispatch(
             openModal({
