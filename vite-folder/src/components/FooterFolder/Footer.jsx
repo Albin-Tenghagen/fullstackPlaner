@@ -87,7 +87,7 @@ const Footer = () => {
           Albin
         </a>
         <a
-          href="https://github.com/ThaisonL"
+          href="https://www.linkedin.com/in/phi-thai-lai-299968330/"
           target="_blank"
           rel="noopener noreferrer"
           className="footerLink"
@@ -103,7 +103,7 @@ const Footer = () => {
           Sami
         </a>
         <a
-          href="https://github.com/ZanaPK0"
+          href="https://www.linkedin.com/in/zana-palani-6b8aa9122/"
           target="_blank"
           rel="noopener noreferrer"
           className="footerLink"
@@ -112,7 +112,7 @@ const Footer = () => {
           Zana
         </a>
         <a
-          href="https://github.com/Derainted"
+          href="https://www.linkedin.com/in/idris-ahmed-5a4226330/"
           target="_blank"
           rel="noopener noreferrer"
           className="footerLink"
