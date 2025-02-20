@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal, updateTravel } from "../../ReducerFolder/travelSlice";
+import { filterCountries } from "../TravelFormFolder/filterCountries"
 import "./EditTravelModal.css"; // Style it according to your design
 
 const EditTravelModal = () => {
@@ -21,14 +22,36 @@ const EditTravelModal = () => {
     dispatch(closeModal());
   };
 
+  const [filteredCountries, setFilteredCountries] = useState([]); // Rename the state to filteredCountries
+  const dropdownRef = useRef(null); // Ref to the dropdown container 
+
   // Handle form input changes
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
 
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    if (name === "country") {
+      const results = filterCountries(value);
+      setFilteredCountries(results);
+    }
   };
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setFilteredCountries([]); // Close dropdown if clicked outside
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   // Submit the form to update the travel
   const handleSubmit = (e) => {
@@ -59,6 +82,25 @@ const EditTravelModal = () => {
               onChange={handleChange}
               required
             />
+
+            {filteredCountries.length > 0 && (
+              <ul ref={dropdownRef} className="filtered-countries-list">
+                {filteredCountries.map((country, index) => (
+                  <li
+                    key={index}
+                    onClick={() => {
+                      setFormData({
+                        ...formData,
+                        country: country.name,
+                      });
+                      setFilteredCountries([]);
+                    }}
+                  >
+                    {country.name}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           <div>
             <label>Time of Departure</label>
