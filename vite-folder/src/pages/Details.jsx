@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import TravelDetail from "../components/DetailsFolder/TravelDetail";
 import ActivityDetail from "../components/DetailsFolder/ActivityDetail";
-import { openModal } from "../ReducerFolder/travelSlice";
+import { removeTravel, openModal } from "../ReducerFolder/travelSlice";
 import "./details.css";
 
 function Details() {
@@ -17,19 +17,45 @@ function Details() {
     <>
       <p className="detailsHomage">Details Page suckaaaas</p>
       <main className="mainDetails">
-        <section className="travelDetailsSection">
+       <article className="travelHeading">
           <h2>Travel Details</h2>
           <p>travel id: {id}</p>
+          <button
+          className="removeButton"
+          onClick={() => dispatch(removeTravel(travel.id))}
+        >
+          <img
+            className="travelItemIcon"
+            src="/icons/remove-add-light/X.png"
+            alt="remove icon"
+          />
+        </button>
+        <button
+          className="editButton"
+          onClick={() =>
+            dispatch(openModal({ modalType: "editTravel", data: travel }))
+          }
+        >
+          <img
+            className="travelItemIcon"
+            src="/icons/edit-light/Feather.png"
+            alt="edit icon"
+          />
+        </button>
+       </article>
+       
+        <section className="travelDetailsSection">
           {travel !== undefined ? (
             <TravelDetail key={travel.id} travel={travel} />
           ) : (
-            <h4>Hejsan hoppsan</h4>
+            <h4>There is no travel to view, return to home to add a travel</h4>
           )}
         </section>
 
         <section className="activityDetailsSection">
           <article className="activityHeading">
             <h3 className="activityDetailsHeader">Activites during the trip</h3>
+            <h4>Add Activity:</h4>
             <button
               className="addButton"
               onClick={() =>

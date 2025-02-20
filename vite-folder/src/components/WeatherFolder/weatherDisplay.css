@@ -64,3 +64,10 @@
   .temperature-box.hot {
     background-color: rgb(235, 70, 25); /* Hot */
 }
+
+
+@media (prefers-color-scheme: light) {
+    .travelWeather-container{
+        color: white;
+    }
+}

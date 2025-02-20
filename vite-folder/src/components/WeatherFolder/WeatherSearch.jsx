@@ -79,7 +79,7 @@ const CountryWeatherSearch = () => {
 
   return (
     <section className="weather-search-container">
-      <h2>Search Weather by Country</h2>
+      <h2 className="searchHeader">Search Weather by Country</h2>
       <section className="searchInputSection">
         <form onSubmit={(e) => {
           e.preventDefault();

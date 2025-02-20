@@ -7,30 +7,9 @@ const TravelItem = ({ travel }) => {
 
   return (
     <>
-      <div className="buttonhouse2">
-        <button
-          className="removeButton"
-          onClick={() => dispatch(removeTravel(travel.id))}
-        >
-          <img
-            className="travelItemIcon"
-            src="/icons/remove-add-light/X.png"
-            alt="remove icon"
-          />
-        </button>
-        <button
-          className="editButton"
-          onClick={() =>
-            dispatch(openModal({ modalType: "editTravel", data: travel }))
-          }
-        >
-          <img
-            className="travelItemIcon"
-            src="/icons/edit-light/Feather.png"
-            alt="edit icon"
-          />
-        </button>
-      </div>
+    <section className="travel-detail">
+
+     
       <article className="travelDetail">
         <h3 className="travelDetailHeader">Coming Travel </h3>
         <p className="travelsingularDetail">
@@ -51,6 +30,7 @@ const TravelItem = ({ travel }) => {
           {travel.methodOfTransportation}
         </p>
       </article>
+    </section>
     </>
   );
 };

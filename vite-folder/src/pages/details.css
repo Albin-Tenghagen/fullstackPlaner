@@ -4,17 +4,52 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-color: #ea7d1d;
+  width: 95%;
+  margin: 0 auto 80px auto;
+  border-radius: 8px;
 }
 
 .travelDetailsSection {
-background-color: #007bFF;
-margin: 12px 0px;
-border-radius: 5px
+/* background-color: #ea7d1d; */
+padding: 20px;
+width: 95%;
+border-radius: 8px 8px 0px 0px;
+}
+
+.travelHeading {
+    background-color: #007bFF;;
+    width: 100%;
+  /* Applies the border to only the bottom corners */
+    border-radius: 8px 8px 0px 0px;
+}
+.travelDetail {
+  padding-bottom: 15px;
+}
+
+.activityHeading {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.activityHeading h4 {
+  margin: 0;
 }
 
 .activityDetailsSection {
-  background-color: #037af9;
-  margin: 12px 0px;
+  background-color: #ea7d1d;
+  margin: 12px 0px 25px 0;
   border-radius: 5px;
+  width: 95%;
+  border-radius: 8px;
 }
 
+.detailsHomage {
+  opacity: 0;
+}
+
+.activity-detail {
+  padding: 15px 0 5px 0;
+}

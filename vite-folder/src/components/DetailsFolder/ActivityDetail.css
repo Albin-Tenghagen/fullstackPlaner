@@ -4,5 +4,9 @@
    margin: 12px 0;
 }
 
-
+.activity-detail {
+    background-color: #007bFF;
+    margin: 2%;
+    border-radius: 8px;
+}
 

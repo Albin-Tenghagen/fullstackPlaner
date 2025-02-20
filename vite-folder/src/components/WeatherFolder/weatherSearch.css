@@ -26,6 +26,7 @@
 
 .searchInputSection input {
     height: 25px;
+    
 }
 
 .weatherStats-container {
@@ -72,4 +73,17 @@
   
   .temperature-box.hot {
     background-color: rgb(235, 70, 25); /* Hot */
+}
+@media (prefers-color-scheme: light) {
+    .weather-search-container{
+        color: white;
+
+    }
+
+    .weatherSearchButton {
+        color: white;
+    }
+    .searchHeader {
+        color: black;
+    }
 }
