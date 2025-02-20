@@ -27,14 +27,7 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
-      // {
-      //   path: "travels",
-      //   element: (
-      //     <Suspense fallback={<div>Loading travels...</div>}>
-      //       <TravelList />
-      //     </Suspense>
-      //   ),
-      // },
+
       {
         path: "weather",
         element: <Weather />,
