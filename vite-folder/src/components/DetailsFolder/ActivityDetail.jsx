@@ -32,7 +32,7 @@
           </button>
           <button
             onClick={() =>
-              dispatch(openModal({modalType: "editActivty", data: activity}))
+              dispatch(openModal({modalType: "editActivity", data: activity.id}))
             }
           >
             <img

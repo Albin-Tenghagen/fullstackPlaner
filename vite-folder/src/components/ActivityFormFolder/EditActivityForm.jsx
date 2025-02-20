@@ -11,6 +11,10 @@ function EditActivityFormModal() {
 
   const activity = useSelector((state) => state.travel.modal?.data);
   // const travel = useSelector((state) => state.travels.modal.data);
+  const isOpen = useSelector((state) => state.travel.modal?.isOpen);
+  if (!isOpen) return null; // Hide modal when it's not open
+
+
 
   const [formData, setFormData] = useState({
     activity: activity?.name || "",
@@ -37,10 +41,14 @@ function EditActivityFormModal() {
   // Submit the form to update the travel
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Ensure the correct data is being passed, including the travel id
+  
+    if (!activity) {
+      console.error("No activity data available!");
+      return;
+    }
+  
     dispatch(updateActivity({ ...formData, id: activity.id }));
-    console.log("data neing passed");
+    console.log("Data being passed:", { ...formData, id: activity.id });
   };
 
   useEffect(() => {
@@ -109,7 +117,7 @@ function EditActivityFormModal() {
             onClick={() => dispatch(closeModal())}
             className="AfModal-addLaterButton"
           >
-            Add later
+            Close
           </button>
         </form>
       </div>
