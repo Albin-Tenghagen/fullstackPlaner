@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux"
-import { updateActivity, closeModal } from "../../ReducerFolder/travelSlice"
-import "./activityform.css"
+import { useDispatch, useSelector } from "react-redux";
+import { updateActivity, closeModal } from "../../ReducerFolder/travelSlice";
+import "./activityForm.css";
 
-function EditActivityFormModal(){
-const dispatch = useDispatch()
-// const { isOpen, modalType, data } = useSelector(
-//     (state) => state.travel.modal
-//   );
+function EditActivityFormModal() {
+  const dispatch = useDispatch();
+  // const { isOpen, modalType, data } = useSelector(
+  //     (state) => state.travel.modal
+  //   );
 
-const activity = useSelector((state) => state.travel.modal?.data);
-// const travel = useSelector((state) => state.travels.modal.data);
+  const activity = useSelector((state) => state.travel.modal?.data);
+  // const travel = useSelector((state) => state.travels.modal.data);
 
-const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     activity: activity?.name || "",
     specificLocation: activity?.specificLocation || "",
     date: activity?.date || "",
     description: activity?.description || "",
-    cost: activity?.cost || ""
-    });
-    
+    cost: activity?.cost || "",
+  });
+
   // Close the modal
   const handleClose = () => {
     dispatch(closeModal());
@@ -29,7 +29,7 @@ const [formData, setFormData] = useState({
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      
+
       [e.target.name]: e.target.value,
     });
   };
@@ -45,12 +45,11 @@ const [formData, setFormData] = useState({
 
   useEffect(() => {
     if (activity) {
-
-    //   handleClose(); // If no travel data, close the modal
+      //   handleClose(); // If no travel data, close the modal
     }
   }, [activity]);
 
-return (
+  return (
     <section className="aFModal">
       <div className="aFModal-backdrop"></div>
       <div className="aFModal-content">
@@ -79,13 +78,13 @@ return (
             required
           />
           <input
-           name="date"
-           type="date"
-           value={formData.date}
-           onChange={handleChange}
-           placeholder="Date"
-           required
-           />
+            name="date"
+            type="date"
+            value={formData.date}
+            onChange={handleChange}
+            placeholder="Date"
+            required
+          />
           <input
             name="description"
             type="text"
@@ -96,8 +95,8 @@ return (
           />
           <input
             name="cost"
-            value={formData.cost}  
-            onChange={handleChange}          
+            value={formData.cost}
+            onChange={handleChange}
             type="text"
             placeholder="Enter cost $..."
             required
@@ -116,6 +115,5 @@ return (
       </div>
     </section>
   );
-
 }
-export default EditActivityFormModal
+export default EditActivityFormModal;
