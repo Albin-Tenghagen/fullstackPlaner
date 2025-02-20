@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 import Header from "./components/HeaderFolder/Header";
 import Footer from "./components/FooterFolder/Footer";
 import ActivityFormModal from "./components/ActivityFormFolder/ActivityForm";
-import EditTravelModal from "./components/TravelListFolder/EditTravelModal";
+import EditActivityFormModal from "./components/ActivityFormFolder/EditActivityForm";
 import { useSelector } from "react-redux"; // Import useSelector to access Redux state
 import "./App.css";
 
@@ -18,7 +18,7 @@ function App() {
       {/* Render the appropriate modal based on modalType */}
       {modal.isOpen && modal.modalType === "editTravel" && <EditTravelModal />}
       {modal.isOpen && modal.modalType === "activity" && <ActivityFormModal />}
-      {modal.isOpen && modal.modalType === "" && <ActivityFormModal />}
+      {modal.isOpen && modal.modalType === "editActivity" && <EditActivityFormModal />}
 
 
       <Footer />

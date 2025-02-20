@@ -3,7 +3,9 @@ import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import TravelDetail from "../components/DetailsFolder/TravelDetail";
 import ActivityDetail from "../components/DetailsFolder/ActivityDetail";
+import { openModal } from "../ReducerFolder/travelSlice"
 import "./details.css";
+
 function Details() {
   //TODO Make a fallback for when there is no travel id to render from. The url is based on travel id in router. So if there is no id the page will return 404 not found.
   //TODO Fix CSS for this component
@@ -42,7 +44,10 @@ function Details() {
           </article>
           {travel && travel.activities ? (
             travel.activities.map((activity) => (
-              <ActivityDetail key={activity.id} activity={activity}  travelId={travel.id}/>
+              <ActivityDetail
+               key={activity.id}
+               activity={activity}
+               travelId={travel.id}/>
             ))
           ) : (
             <h4 className="emptySectionpopup">No activities added yet.</h4>
