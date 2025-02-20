@@ -1,3 +1,99 @@
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  
+  a:hover {
+    color: #747bff;
+  }
+  
+  button {
+    background-color: #f9f9f9;
+  }
+
+  /* Modal Styling for Light Mode */
+  .modal-content {
+    background-color: #fff;
+    color: #213547;
+  }
+
+  .modal-content label {
+    color: #333;
+  }
+
+  .modal-content input {
+    border: 1px solid #ddd;
+  }
+
+  .modal-content input:focus {
+    border-color: #007bff;
+  }
+
+  .modal-content button {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .modal-content button:hover {
+    background-color: #0056b3;
+  }
+
+  .close-button:hover {
+    background-color: #d32f2f;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: #213547;
+    color: white;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #747bff;
+  }
+
+  /* Modal Styling for Dark Mode */
+  .modal-content {
+    background-color: #2a3b4f;
+    color: white;
+  }
+
+  .modal-content label {
+    color: #ddd;
+  }
+
+  .modal-content input {
+    background-color: #3a4c63;
+    color: white;
+    border: 1px solid #555;
+  }
+
+  .modal-content input:focus {
+    border-color: #747bff;
+  }
+
+  .modal-content button {
+    background-color: #747bff;
+    color: white;
+  }
+
+  .modal-content button:hover {
+    background-color: #5a62d1;
+  }
+
+  .close-button:hover {
+    background-color: #b32f2f;
+  }
+}
+
 /* Modal Overlay */
 .modal-overlay {
   position: fixed;
@@ -15,7 +111,6 @@
 
 /* Modal Content Box */
 .modal-content {
-  background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   width: 100%;
@@ -36,55 +131,17 @@
   gap: 15px;
 }
 
-.modal-content label {
-  font-size: 1em;
-  font-weight: bold;
-  color: #333;
-}
-
 .modal-content input {
   padding: 10px;
+  margin: 12px 0;
   font-size: 1em;
-  border: 1px solid #ddd;
   border-radius: 4px;
-  width: 100%;
+  width: 95%;
 }
 
-.modal-content input:focus {
-  border-color: #007bff; /* Highlight border on focus */
-  outline: none;
-}
-
-.modal-content button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.modal-content button:hover {
-  background-color: #0056b3;
-}
-
-.close-button {
-  padding: 10px 20px;
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: block;
-  margin: 10px auto 0;
-}
-
-.close-button:hover {
-  background-color: #d32f2f;
+.buttonDiv {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 /* Keyframe for fadeIn */
@@ -104,3 +161,7 @@
     opacity: 0;
   }
   to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

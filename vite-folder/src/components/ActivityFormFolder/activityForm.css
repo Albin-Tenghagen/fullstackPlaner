@@ -1,3 +1,106 @@
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+
+    a:hover {
+        color: #747bff;
+    }
+
+    button {
+        background-color: #f9f9f9;
+    }
+
+    /* Modal Styling for Light Mode */
+    .aFModal-content {
+        background: white;
+        color: #213547;
+    }
+
+    .aFModal-closeButton {
+        color: #555;
+    }
+
+    .aFModal-closeButton:hover {
+        color: #000;
+    }
+
+    .activityForm input {
+        background-color: white;
+        color: #213547;
+        border: 1px solid #ccc;
+    }
+
+    .activityForm input:focus {
+        border-color: #007bff;
+    }
+
+    .aFModal-addButton,
+    .AfModal-addLaterButton {
+        background: #007bff;
+        color: white;
+    }
+
+    .aFModal-addButton:hover,
+    .AfModal-addLaterButton:hover {
+        background: #0056b3;
+    }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        background-color: #213547;
+        color: white;
+    }
+
+    a:hover {
+        color: #747bff;
+    }
+
+    button {
+        background-color: #747bff;
+    }
+
+    /* Modal Styling for Dark Mode */
+    .aFModal-content {
+        background: #2a3b4f;
+        color: white;
+    }
+
+    .aFModal-closeButton {
+        color: #ddd;
+    }
+
+    .aFModal-closeButton:hover {
+        color: white;
+    }
+
+    .activityForm input {
+        background-color: #3a4c63;
+        color: white;
+        border: 1px solid #555;
+    }
+
+    .activityForm input:focus {
+        border-color: #747bff;
+    }
+
+    .aFModal-addButton,
+    .AfModal-addLaterButton {
+        background: #747bff;
+        color: white;
+    }
+
+    .aFModal-addButton:hover,
+    .AfModal-addLaterButton:hover {
+        background: #5a62d1;
+    }
+}
+
+/* Modal Overlay */
 .aFModal {
     position: fixed;
     top: 50%;
@@ -22,7 +125,6 @@
 }
 
 .aFModal-content {
-    background: white;
     padding: 25px;
     border-radius: 12px;
     width: 90%;
@@ -41,54 +143,29 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #555;
     transition: color 0.2s ease-in-out;
-}
-
-.aFModal-closeButton:hover {
-    color: #000;
 }
 
 .activityForm input {
     display: block;
-    width: 100%;
+    width: 95%;
     margin: 12px 0;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
     transition: border 0.2s ease-in-out;
 }
 
-.activityForm input:focus {
-    border: 1px solid #007bff;
-    outline: none;
+.buttonDiv {
+    display: flex;
+    justify-content: space-between;
 }
 
-.aFModal-addButton {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 12px;
-    width: 100%;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
-}
-
-.aFModal-addButton:hover {
-    background: #0056b3;
-    transform: scale(1.05);
-}
-
+.aFModal-addButton,
 .AfModal-addLaterButton {
-    background: #007bff;
-    color: white;
     border: none;
     padding: 12px;
-    width: 100%;
+    width: 10rem;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -96,8 +173,8 @@
     transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
+.aFModal-addButton:hover,
 .AfModal-addLaterButton:hover {
-    background: #0056b3;
     transform: scale(1.05);
 }
 

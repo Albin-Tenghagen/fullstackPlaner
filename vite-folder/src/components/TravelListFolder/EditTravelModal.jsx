@@ -143,11 +143,15 @@ const EditTravelModal = () => {
             />
           </div>
 
-          <button type="submit">Save Changes</button>
+
         </form>
+
+        <div className="buttonDiv">
+        <button type="submit">Save Changes</button>    
         <button className="close-button" onClick={handleClose}>
           Close
         </button>
+        </div>
       </div>
     </div>
   );

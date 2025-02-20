@@ -100,7 +100,7 @@ function EditActivityFormModal() {
             placeholder="Enter cost $..."
             required
           />
-
+<div className="buttonDiv">
           <button className="aFModal-addButton" type="submit">
             Save
           </button>
@@ -110,6 +110,7 @@ function EditActivityFormModal() {
           >
             Close
           </button>
+          </div>
         </form>
       </div>
     </section>
