@@ -1,13 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { openModal, removeTravel } from "../../ReducerFolder/travelSlice";
-import ActivityDetail from "../DetailsFolder/ActivityDetail";
 import "./travelItem.css";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 
-
-const TravelItem = React.memo(({ travel }) => {
+const TravelItem = React.memo(function TravelItem({ travel }) { 
   const dispatch = useDispatch();
   const activities = travel.activities || [];
 
@@ -43,12 +41,8 @@ const TravelItem = React.memo(({ travel }) => {
 
       <div>
         <h3>Activities:</h3>
-        {activities.length > 0 ? (
-          <ul>
-            {activities.map((activity) => (
-              <ActivityDetail key={activity.id} travelId={travel.id} activity={activity} />
-            ))}
-          </ul>
+        {(activities && activities.length > 0) ? (
+          <h4>You have {activities.length} activities planed for the trip</h4>
         ) : (
           <h4>No activities added yet!</h4>
         )}

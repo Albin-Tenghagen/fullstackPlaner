@@ -21,7 +21,7 @@ const travelSlice = createSlice({
         ...action.payload,
         activities: action.payload.activities || [], // ensure activities is initialized
       });
-      console.log("travels so far:", travels);
+      console.log("travels so far:", state.travels);
     },
     removeTravel: (state, action) => {
       // action.payload is the travel id

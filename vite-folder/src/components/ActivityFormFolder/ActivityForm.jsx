@@ -25,7 +25,7 @@ function ActivityFormModal() {
     };
     dispatch(addActivity({ travelId: data, activity: newActivityData }));
     event.target.reset();
-    console.log("activity Wagwaan submitted");
+    console.log("activity Wagwaan submitted:", newActivityData);
 
     dispatch(closeModal());
   };

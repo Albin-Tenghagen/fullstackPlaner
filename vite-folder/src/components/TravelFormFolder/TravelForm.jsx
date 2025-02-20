@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef} from "react";
 import { useDispatch } from "react-redux";
-import { addTravel, openModal } from "../../ReducerFolder/travelSlice";
+import { addTravel } from "../../ReducerFolder/travelSlice";
 import "./travelForm.css";
 import { filterCountries } from "./filterCountries";
 

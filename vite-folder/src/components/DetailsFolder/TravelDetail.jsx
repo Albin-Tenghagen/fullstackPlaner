@@ -54,9 +54,7 @@ const TravelItem = ({ travel }) => {
           />
         </button>
       </div>
-      <Link className="addButton" to={`/details/${travel.id}`}>
-        read more
-      </Link>
+     
     </article>
   );
 };
