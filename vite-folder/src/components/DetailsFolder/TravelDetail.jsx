@@ -11,21 +11,21 @@ const TravelItem = ({ travel }) => {
   const dispatch = useDispatch();
 
   return (
-    <article className="travel-item">
-      <h3 className="travel-itemHeader">Coming Travel </h3>
-      <p>
+    <article className="travelDetail">
+      <h3 className="travelDetailHeader">Coming Travel </h3>
+      <p className="travelsingularDetail">
         <strong>Destination:</strong> {travel.country}
       </p>
-      <p>
+      <p className="travelsingularDetail">
         <strong>Time Of Departure:</strong>{" "}
         {travel.timeOfDeparture.replace("T", " ")}{" "}
       </p>
-      <p>
+      <p className="travelsingularDetail">
         <strong>Adventures End: </strong>
         {travel.adventuresEnd.replace("T", " ")}
       </p>
       <strong>Band of merry men: </strong> {travel.travellingParty}
-      <p>
+      <p className="travelsingularDetail">
         {" "}
         <strong>Method of Transportation: </strong>{" "}
         {travel.methodOfTransportation}

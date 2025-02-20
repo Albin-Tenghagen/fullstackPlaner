@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/home";
 import Weather from "../pages/weather";
+
 // import NotFound from "../components/errorsFolder/NotFound";
 const Details = lazy(() => import("../pages/Details"));
 const TravelList = lazy(() =>

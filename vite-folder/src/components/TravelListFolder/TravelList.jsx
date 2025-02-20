@@ -9,12 +9,10 @@ import "./travelList.css";
 
 const TravelList = () => {
   const travels = useSelector((state) => state.travel.travels);
-  console.log(travels.map((travel) => travel.id));
 
   const filteredTravels = useMemo(() => {
-    return travels.filter(travel => travel.isActive);
+    return travels.filter((travel) => travel.isActive);
   }, [travels]);
-
 
   return (
     <section className="travelListSection">
