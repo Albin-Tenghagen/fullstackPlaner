@@ -6,21 +6,23 @@ const WeatherDisplay = () => {
   const travels = useSelector((state) => state.travel.travels);
 
   const [weatherData, setWeatherData] = useState({}); // Store weather data by country
+  const [errorMessages, setErrorMessages] = useState({}); // Store error messages for countries
 
   const sortedTravels = [...(travels || [])].sort(
     (a, b) => new Date(a.timeOfDeparture) - new Date(b.timeOfDeparture)
   );
 
   const nearestTravels = sortedTravels.slice(0, 4);
+
   useEffect(() => {
     // Fetch weather data for each travel's country only if it hasn't been fetched already
     nearestTravels.forEach((travel) => {
-      if (travel.country && !weatherData[travel.country]) {
+      if (travel.country && !weatherData[travel.country] && !errorMessages[travel.country]) {
         fetchWeather(travel.country);
         console.log("Calling FetchWeather in useEffect");
       }
     });
-  }, [nearestTravels, weatherData]); // Ensure this effect runs when nearestTravels or weatherData changes
+  }, [nearestTravels, weatherData, errorMessages]); // Ensure this effect runs when nearestTravels, weatherData, or errorMessages changes
 
   const fetchWeather = async (country) => {
     const apiKey = "da5e1812d2384e5eb3b184225251702";
@@ -43,9 +45,21 @@ const WeatherDisplay = () => {
           wind_kph: data.current.wind_kph,
         },
       }));
+      setErrorMessages((prevMessages) => ({
+        ...prevMessages,
+        [country]: "", // Clear any error message if data is fetched successfully
+      }));
       console.log(`Weather in ${country}:`, data);
     } catch (error) {
       console.error(`Error fetching weather for ${country}:`, error);
+      setErrorMessages((prevMessages) => ({
+        ...prevMessages,
+        [country]: "Weather data not available for this location, or incorrect spelling.",
+      }));
+      setWeatherData((prevData) => ({
+        ...prevData,
+        [country]: null, // Clear weather data for the country if fetch fails
+      }));
     }
   };
 
@@ -62,20 +76,23 @@ const WeatherDisplay = () => {
       <ul className="weatherList">
         {nearestTravels.map((travel) => {
           const weather = weatherData[travel.country];
+          const errorMessage = errorMessages[travel.country];
           const { className, text } = weather
             ? getTemperatureDetails(weather.temp_c)
             : { className: "", text: "" };
-  
+
           return (
             <li key={travel.id}>
               <div className="cardTitle">
-              <h3> Weather in {travel.country.charAt(0).toUpperCase() + travel.country.slice(1)}</h3>
+                <h3> Weather in {travel.country.charAt(0).toUpperCase() + travel.country.slice(1)}</h3>
                 <div id="tempBoxStyle" className={`temperature-box ${className}`}>
                   {text}
                 </div>
               </div>
               <div>
-                {weather && (
+                {errorMessage ? (
+                  <p>{errorMessage}</p> // Display error message
+                ) : weather ? (
                   <div>
                     <p><strong>Temperature:</strong> {weather.temp_c}°C</p>
                     <p><strong>Feels Like:</strong> {weather.feelsLike_c}°C</p>
@@ -84,6 +101,8 @@ const WeatherDisplay = () => {
                     <p><strong>Humidity:</strong> {weather.humidity}%</p>
                     <p><strong>UV Index:</strong> {weather.uv}</p>
                   </div>
+                ) : (
+                  <p>Loading weather data...</p>
                 )}
               </div>
             </li>
@@ -92,7 +111,6 @@ const WeatherDisplay = () => {
       </ul>
     </section>
   );
-  
 };
 
 export default WeatherDisplay;

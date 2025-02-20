@@ -9,7 +9,7 @@ const CountryWeatherSearch = () => {
   const [loading, setLoading] = useState(false); // Loading state
   const [error, setError] = useState(""); // Error message for failed fetches
 
-  const [filteredCountries, setFilteredCountries] = useState([]); // Rename the state to filteredCountries
+  const [filteredCountries, setFilteredCountries] = useState([]); // Filtered country list for suggestions
   const dropdownRef = useRef(null); // Ref to the dropdown container
 
   const fetchWeather = async (country) => {
@@ -35,8 +35,8 @@ const CountryWeatherSearch = () => {
       setSearchedCountry(country);
     } catch (error) {
       console.error("Error fetching weather data:", error);
-      setError("Failed to fetch weather data");
-      setWeatherData(null);
+      setError("Weather data not available for this country, or incorrect spelling.");
+      setWeatherData(null); // Clear any existing weather data
     } finally {
       setLoading(false);
     }
@@ -74,8 +74,8 @@ const CountryWeatherSearch = () => {
   };
 
   const { className, text } = weatherData
-   ? getTemperatureDetails(weatherData.temp_c) 
-   : { className: "", text: "" };
+    ? getTemperatureDetails(weatherData.temp_c)
+    : { className: "", text: "" };
 
   return (
     <section className="weather-search-container">
@@ -84,9 +84,8 @@ const CountryWeatherSearch = () => {
         <form onSubmit={(e) => {
           e.preventDefault();
           if (country.trim()) fetchWeather(country);
-          setCountry("");
+          setCountry(""); // Clear input after search
         }}>
-
           <input
             type="text"
             placeholder="Enter country"
@@ -110,28 +109,29 @@ const CountryWeatherSearch = () => {
               ))}
             </ul>
           )}
+
           <button className="weatherSearchButton" type="submit">Search</button>
         </form>
       </section>
 
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {loading && <p>Loading...</p>} {/* Show loading message */}
+      {error && <p>{error}</p>} {/* Show error message */}
 
       {weatherData && (
         <section className="weatherStats-container">
-        <div className="weatherStats">
-          <h3>Weather in {searchedCountry}</h3>
-          <p><strong>Temperature:</strong> {weatherData.temp_c}°C</p>
-          <p><strong>Feels Like:</strong> {weatherData.feelsLike_c}°C</p>
-          <p><strong>Condition:</strong> {weatherData.condition}</p>
-          <p><strong>Wind Speed:</strong> {weatherData.wind_kph} kph</p>
-          <p><strong>Humidity:</strong> {weatherData.humidity}%</p>
-          <p><strong>UV Index:</strong> {weatherData.uv}</p>
-        </div>
-        <div className={`temperature-box ${className}`}>
-          {text}
-        </div>
-      </section>
+          <div className="weatherStats">
+            <h3>Weather in {searchedCountry}</h3>
+            <p><strong>Temperature:</strong> {weatherData.temp_c}°C</p>
+            <p><strong>Feels Like:</strong> {weatherData.feelsLike_c}°C</p>
+            <p><strong>Condition:</strong> {weatherData.condition}</p>
+            <p><strong>Wind Speed:</strong> {weatherData.wind_kph} kph</p>
+            <p><strong>Humidity:</strong> {weatherData.humidity}%</p>
+            <p><strong>UV Index:</strong> {weatherData.uv}</p>
+          </div>
+          <div className={`temperature-box ${className}`}>
+            {text}
+          </div>
+        </section>
       )}
     </section>
   );
