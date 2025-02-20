@@ -26,6 +26,7 @@ function Details() {
             <h4>Hejsan hoppsan</h4>
           )}
         </section>
+
         <section className="activityDetailsSection">
           <article className="activityHeading">
             <h3 className="activityDetailsHeader">Activites during the trip</h3>

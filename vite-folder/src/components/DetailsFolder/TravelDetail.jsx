@@ -1,13 +1,13 @@
 import { useDispatch } from "react-redux";
 import { openModal, removeTravel } from "../../ReducerFolder/travelSlice";
-
+import "./TravelDetail.css";
 import { Link } from "react-router";
 const TravelItem = ({ travel }) => {
   const dispatch = useDispatch();
 
   return (
     <>
-      <div className="buttonhouse">
+      <div className="buttonhouse2">
         <button
           className="removeButton"
           onClick={() => dispatch(removeTravel(travel.id))}

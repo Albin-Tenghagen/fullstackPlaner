@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { removeActivity, openModal } from "../../ReducerFolder/travelSlice";
-
+import "./ActivityDetail.css";
 const ActivityDetail = ({ travelId, activity }) => {
   const dispatch = useDispatch();
 
@@ -20,6 +20,7 @@ const ActivityDetail = ({ travelId, activity }) => {
       <p>
         <strong>Cost: </strong> {activity.cost}
       </p>
+      <div className="buttonhouse1">
       <button
         onClick={() =>
           dispatch(
@@ -44,7 +45,9 @@ const ActivityDetail = ({ travelId, activity }) => {
           src="/icons/edit-light/Feather.png"
           alt="edit icon"
         />
-      </button>{" "}
+      </button>
+      </div>{" "}
+      
     </article>
   );
 };

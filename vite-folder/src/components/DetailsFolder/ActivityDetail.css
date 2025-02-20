@@ -1,0 +1,11 @@
+.buttonhouse1 { 
+    display: flex;
+    justify-content: space-between;
+   margin: 12px 0;
+}
+
+.buttonhouse1 button {
+    height: 70px;
+    width: 90px;
+}
+

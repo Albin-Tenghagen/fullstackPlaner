@@ -6,3 +6,15 @@
   text-align: center;
 }
 
+.travelDetailsSection {
+background-color: #007bFF;
+margin: 12px 0px;
+border-radius: 5px
+}
+
+.activityDetailsSection {
+  background-color: #037af9;
+  margin: 12px 0px;
+  border-radius: 5px;
+}
+
