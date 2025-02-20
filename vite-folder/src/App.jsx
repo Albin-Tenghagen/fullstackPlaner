@@ -1,10 +1,10 @@
 import { Outlet } from "react-router";
 import Header from "./components/HeaderFolder/Header";
 import Footer from "./components/FooterFolder/Footer";
-import EditTravelModal from "./components/TravelListFolder/EditTravelModal";
+import EditTravelModal from "./components/editTravelFolder/EditTravelModal";
 import ActivityFormModal from "./components/ActivityFormFolder/ActivityForm";
 import EditActivityFormModal from "./components/ActivityFormFolder/EditActivityForm";
-import { useSelector } from "react-redux"; // Import useSelector to access Redux state
+import { useSelector } from "react-redux";
 import "./App.css";
 
 function App() {

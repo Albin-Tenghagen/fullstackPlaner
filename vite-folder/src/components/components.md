@@ -1,1 +1,0 @@
-Här får componenter bo!

@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import travelReducer from "../ReducerFolder/travelSlice";
 
-// Load travels from localStorage
 const loadState = () => {
   try {
     const serializedTravels = localStorage.getItem("travels");
@@ -9,7 +8,7 @@ const loadState = () => {
       ? {
           travel: {
             travels: JSON.parse(serializedTravels),
-            modal: { isOpen: false, modalType: null, data: null }, // Ensure modal is always present
+            modal: { isOpen: false, modalType: null, data: null }, //
           },
         }
       : undefined;
@@ -23,10 +22,9 @@ const store = configureStore({
   reducer: {
     travel: travelReducer,
   },
-  preloadedState: loadState(), // Preload state from localStorage if available
+  preloadedState: loadState(),
 });
 
-// Save travels to localStorage on every state change
 store.subscribe(() => {
   try {
     const state = store.getState();
