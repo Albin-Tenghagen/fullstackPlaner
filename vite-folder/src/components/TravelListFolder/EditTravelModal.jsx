@@ -73,7 +73,7 @@ const EditTravelModal = () => {
       <div className="modal-content">
         <h2>Edit Travel Details</h2>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="countryInput">
             <label>Country</label>
             <input
               type="text"

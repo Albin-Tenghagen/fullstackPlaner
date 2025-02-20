@@ -24,6 +24,10 @@
   animation: slideIn 0.3s ease-out; /* Slide-in animation */
 }
 
+.countryInput {
+  position: relative;
+}
+
 .modal-content h2 {
   font-size: 1.5em;
   margin-bottom: 20px;
@@ -104,3 +108,4 @@
     opacity: 0;
   }
   to {
+  }}

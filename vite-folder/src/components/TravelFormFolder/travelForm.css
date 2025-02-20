@@ -26,6 +26,7 @@
 .travel-form-group {
   width: 48%;
   margin-bottom: 20px;
+  position: relative;
 }
 
 /* Additional styles for fields on the left side */
@@ -75,6 +76,7 @@
   .travel-form-input {
     flex-direction: column;
   }
+
   .travel-form-group {
     width: 24%;
     margin-bottom: 20px;
@@ -101,6 +103,8 @@
   position: absolute;
   max-width: 300px;
   background-color: #007bff;
+  top: 100%;
+  z-index: 1000;
 }
 
 .filtered-countries-list li {

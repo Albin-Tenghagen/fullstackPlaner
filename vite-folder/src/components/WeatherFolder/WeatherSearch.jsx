@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { filterCountries } from "../TravelFormFolder/filterCountries";
 import "./weatherSearch.css";
 
 const CountryWeatherSearch = () => {
@@ -7,6 +8,9 @@ const CountryWeatherSearch = () => {
   const [weatherData, setWeatherData] = useState(null); // Weather data for the searched country
   const [loading, setLoading] = useState(false); // Loading state
   const [error, setError] = useState(""); // Error message for failed fetches
+
+  const [filteredCountries, setFilteredCountries] = useState([]); // Rename the state to filteredCountries
+  const dropdownRef = useRef(null); // Ref to the dropdown container
 
   const fetchWeather = async (country) => {
     const apiKey = "da5e1812d2384e5eb3b184225251702";
@@ -38,12 +42,29 @@ const CountryWeatherSearch = () => {
     }
   };
 
-  const handleSearch = () => {
-    if (country.trim()) {
-      fetchWeather(country);
-      setCountry("");
+  const handleSearch = (e) => {
+    const input = e.target.value;
+    setCountry(input);
+    if (input.trim()) {
+      const suggestions = filterCountries(input);
+      setFilteredCountries(suggestions);
+    } else {
+      setFilteredCountries([]);
     }
   };
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setFilteredCountries([]);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const getTemperatureDetails = (temp) => {
     if (temp <= 0) return { className: "cold", text: "Freezing" };
@@ -52,7 +73,9 @@ const CountryWeatherSearch = () => {
     return { className: "hot", text: "Hot" };
   };
 
-  const { className, text } = weatherData ? getTemperatureDetails(weatherData.temp_c) : { className: "", text: "" };
+  const { className, text } = weatherData
+   ? getTemperatureDetails(weatherData.temp_c) 
+   : { className: "", text: "" };
 
   return (
     <section className="weather-search-container">
@@ -60,15 +83,33 @@ const CountryWeatherSearch = () => {
       <section className="searchInputSection">
         <form onSubmit={(e) => {
           e.preventDefault();
-          handleSearch();
+          if (country.trim()) fetchWeather(country);
+          setCountry("");
         }}>
+
           <input
             type="text"
             placeholder="Enter country"
             value={country}
-            onChange={(e) => setCountry(e.target.value)}
+            onChange={handleSearch}
             required
           />
+
+          {filteredCountries.length > 0 && (
+            <ul ref={dropdownRef} className="filtered-countries-list">
+              {filteredCountries.map((filteredCountry, index) => (
+                <li
+                  key={index}
+                  onClick={() => {
+                    setCountry(filteredCountry.name); // Set selected country
+                    setFilteredCountries([]); // Clear suggestions
+                  }}
+                >
+                  {filteredCountry.name}
+                </li>
+              ))}
+            </ul>
+          )}
           <button className="weatherSearchButton" type="submit">Search</button>
         </form>
       </section>
