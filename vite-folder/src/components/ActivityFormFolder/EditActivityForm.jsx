@@ -13,7 +13,7 @@ function EditActivityFormModal() {
   // const travel = useSelector((state) => state.travels.modal.data);
 
   const [formData, setFormData] = useState({
-    activity: activity?.name || "",
+    activity: activity?.activity || "",
     specificLocation: activity?.specificLocation || "",
     date: activity?.date || "",
     description: activity?.description || "",
@@ -102,13 +102,13 @@ function EditActivityFormModal() {
           />
 
           <button className="aFModal-addButton" type="submit">
-            Add
+            Save
           </button>
           <button
             onClick={() => dispatch(closeModal())}
             className="AfModal-addLaterButton"
           >
-            Add later
+            Close
           </button>
         </form>
       </div>

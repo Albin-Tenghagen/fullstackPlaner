@@ -8,10 +8,6 @@ const Footer = () => {
     <footer>
       <article className="footerArticle">
         <h4 className="footerh4">Shortcuts</h4>
-        <Link to="/details" className="footerLink">
-          {" "}
-          Travel Details
-        </Link>
         <Link to="/weather" className="footerLink">
           Weather
         </Link>
