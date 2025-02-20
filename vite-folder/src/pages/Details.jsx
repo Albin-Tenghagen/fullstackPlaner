@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import TravelDetail from "../components/DetailsFolder/TravelDetail";
 import ActivityDetail from "../components/DetailsFolder/ActivityDetail";
-import { openModal } from "../ReducerFolder/travelSlice"
+import { openModal } from "../ReducerFolder/travelSlice";
 import "./details.css";
 
 function Details() {
@@ -15,7 +15,7 @@ function Details() {
   const travel = travels.find((t) => String(t.id) === id);
   return (
     <>
-      <p>Details Page suckaaaas</p>
+      <p className="detailsHomage">Details Page suckaaaas</p>
       <main className="mainDetails">
         <section className="travelDetailsSection">
           <h2>Travel Details</h2>
@@ -45,9 +45,10 @@ function Details() {
           {travel && travel.activities ? (
             travel.activities.map((activity) => (
               <ActivityDetail
-               key={activity.id}
-               activity={activity}
-               travelId={travel.id}/>
+                key={activity.id}
+                activity={activity}
+                travelId={travel.id}
+              />
             ))
           ) : (
             <h4 className="emptySectionpopup">No activities added yet.</h4>

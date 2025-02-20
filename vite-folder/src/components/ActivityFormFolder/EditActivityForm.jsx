@@ -40,8 +40,8 @@ function EditActivityFormModal() {
 
     dispatch(
       updateActivity({
-        travelId: activity.travelId, // Ensure this exists
-        activity: { ...formData, id: activity.id }, // Wrap form data in `activity`
+        travelId: activity.travelId,
+        activity: { ...formData, id: activity.id },
       })
     );
 
@@ -60,14 +60,14 @@ function EditActivityFormModal() {
           X
         </button>
         <form className="activityForm" onSubmit={handleSubmit}>
-          {/* <input
+          <input
             name="activity"
             type="text"
             value={formData.activity}
             onChange={handleChange}
             placeholder="Enter activity..."
             required
-          /> */}
+          />
           <input
             name="specificLocation"
             type="text"

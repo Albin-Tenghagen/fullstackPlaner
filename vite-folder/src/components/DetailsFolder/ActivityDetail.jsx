@@ -12,7 +12,7 @@ const ActivityDetail = ({ travelId, activity }) => {
         <strong>Description: </strong> {activity.description}
       </p>
       <p>
-        <strong>Specific Location: </strong>
+        <strong>Specific Location: </strong> {activity.specificLocation}
       </p>
       <p>
         <strong>date: </strong> {activity.date}

@@ -56,7 +56,7 @@ const EditTravelModal = () => {
               type="text"
               name="country"
               value={formData.country}
-              v
+              onChange={handleChange}
               required
             />
           </div>
