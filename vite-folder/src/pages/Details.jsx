@@ -42,7 +42,7 @@ function Details() {
           </article>
           {travel && travel.activities ? (
             travel.activities.map((activity) => (
-              <ActivityDetail key={activity.id} activity={activity} />
+              <ActivityDetail key={activity.id} activity={activity}  travelId={travel.id}/>
             ))
           ) : (
             <h4 className="emptySectionpopup">No activities added yet.</h4>

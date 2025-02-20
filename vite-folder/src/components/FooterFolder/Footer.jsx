@@ -99,7 +99,7 @@ const Footer = () => {
           Phi-Thai
         </a>
         <a
-          href="https://github.com/Samii02"
+          href="https://www.linkedin.com/in/sami-al-halabi-1aab76329/"
           target="_blank"
           rel="noopener noreferrer"
           className="footerLink"

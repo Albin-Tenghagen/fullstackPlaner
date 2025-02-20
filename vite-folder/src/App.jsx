@@ -18,6 +18,7 @@ function App() {
       {/* Render the appropriate modal based on modalType */}
       {modal.isOpen && modal.modalType === "editTravel" && <EditTravelModal />}
       {modal.isOpen && modal.modalType === "activity" && <ActivityFormModal />}
+      {modal.isOpen && modal.modalType === "" && <ActivityFormModal />}
 
 
       <Footer />

@@ -70,7 +70,7 @@ const WeatherDisplay = () => {
             <li key={travel.id}>
               <div className="cardTitle">
                 <h3>Weather in {travel.country}</h3>
-                <div className={`temperature-box ${className}`}>
+                <div id="tempBoxStyle" className={`temperature-box ${className}`}>
                   {text}
                 </div>
               </div>

@@ -33,7 +33,16 @@
 
 .cardTitle {
     display: flex;
-    gap: 5px;
+    flex-direction: column;
+    
+}
+
+.cardTitle h3 {
+    margin: 10px 0 0 0;
+}
+
+#tempBoxStyle {
+    margin: 5px 0 20px 0;
 }
 
 .temperature-box.cold {

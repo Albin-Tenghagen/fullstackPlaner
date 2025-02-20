@@ -24,14 +24,14 @@ const ActivityDetail = ({ travelId, activity }) => {
       </p>
       <button
         onClick={() =>
-          dispatch(removeActivity({ travelId, activityId: activity.id }))
+          dispatch(removeActivity({ travelId: travelId, activityId: activity.id }))
         }
       >
         <img src="/icons/remove-add-dark/X-circle.png" alt="remove icon" />
       </button>
       <button
         onClick={() =>
-          dispatch(updateActivity({ travelId, activityId: activity.id }))
+          dispatch(updateActivity({ travelId: travelId, activityId: activity.id }))
         }
       >
         <img
