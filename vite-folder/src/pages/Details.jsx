@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import TravelDetail from "../components/DetailsFolder/TravelDetail";
 import ActivityDetail from "../components/DetailsFolder/ActivityDetail";
+import "./details.css";
 function Details() {
   //TODO Make a fallback for when there is no travel id to render from. The url is based on travel id in router. So if there is no id the page will return 404 not found.
   //TODO Fix CSS for this component
@@ -25,7 +25,7 @@ function Details() {
           )}
         </section>
         <section className="activityDetailsSection">
-          <article>
+          <article className="activityHeading">
             <h3 className="activityDetailsHeader">Activites during the trip</h3>
             <button
               className="addButton"
