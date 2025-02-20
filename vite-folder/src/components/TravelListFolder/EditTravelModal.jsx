@@ -14,7 +14,7 @@ const EditTravelModal = () => {
     travellingParty: travel?.travellingParty || "",
     methodOfTransportation: travel?.methodOfTransportation || "",
     activities: travel?.activities || [],
-    });
+  });
 
   // Close the modal
   const handleClose = () => {
@@ -25,7 +25,7 @@ const EditTravelModal = () => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      
+
       [e.target.name]: e.target.value,
     });
   };

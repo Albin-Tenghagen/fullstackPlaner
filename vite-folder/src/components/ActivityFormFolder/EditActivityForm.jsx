@@ -38,22 +38,21 @@ function EditActivityFormModal() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Ensure the correct data is being passed, including the travel id
-    dispatch(updateActivity({ ...formData, id: activity.id }));
-    console.log("data neing passed");
-  };
+    dispatch(
+      updateActivity({
+        travelId: activity.travelId, // Ensure this exists
+        activity: { ...formData, id: activity.id }, // Wrap form data in `activity`
+      })
+    );
 
-  useEffect(() => {
-    if (activity) {
-      //   handleClose(); // If no travel data, close the modal
-    }
-  }, [activity]);
+    dispatch(closeModal());
+  };
 
   return (
     <section className="aFModal">
       <div className="aFModal-backdrop"></div>
       <div className="aFModal-content">
-        <h2 className="aFModal-title">Fill in trip details</h2>
+        <h2 className="aFModal-title">Edit in activity details</h2>
         <button
           className="aFModal-closeButton"
           onClick={() => dispatch(closeModal())}
@@ -61,14 +60,14 @@ function EditActivityFormModal() {
           X
         </button>
         <form className="activityForm" onSubmit={handleSubmit}>
-          <input
+          {/* <input
             name="activity"
             type="text"
             value={formData.activity}
             onChange={handleChange}
             placeholder="Enter activity..."
             required
-          />
+          /> */}
           <input
             name="specificLocation"
             type="text"

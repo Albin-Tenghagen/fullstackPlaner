@@ -73,9 +73,12 @@ const travelSlice = createSlice({
     //* modal calling
     openModal: (state, action) => {
       state.modal.isOpen = true;
+      console.log("Körs");
       state.modal.modalType = action.payload.modalType;
       state.modal.data = action.payload.data; // store the data related to the modal
+      console.log("payload", action.payload.data);
     },
+
     closeModal: (state) => {
       state.modal.isOpen = false;
       state.modal.modalType = null;
@@ -93,5 +96,6 @@ export const {
   updateActivity,
   openModal,
   closeModal,
+  openOtherModal,
 } = travelSlice.actions;
 export default travelSlice.reducer;
